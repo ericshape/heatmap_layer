@@ -5,6 +5,8 @@ heatmap.js is a JavaScript library that can be used to generate web heatmaps wit
 Heatmap instances contain a store in order to colorize the heatmap based on relative data, which means if you're adding only a single datapoint to the store it will be displayed as the hottest(red) spot, then adding another point with a higher count, it will dynamically recalculate. 
 The heatmaps are fully customizable - you're welcome to choose your own color gradient, change its opacity, datapoint radius and many more. 
 
+## How it use our layer
+
 ## How to use it
 Just add heatmap.js to your webpage and it will create one global object called **heatmapFactory** which you also can access as **h337**.
 This global object has a function **create** that takes one argument **config** (Object) and returns a heatmap instance. 
