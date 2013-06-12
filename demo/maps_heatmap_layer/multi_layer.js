@@ -1,4 +1,6 @@
-//  $(function(){
+/*
+    multi layer libs in Backbone js
+*/
     // Define the heatmpaData
     var heatmapData = heatmapData || {};
 
@@ -112,161 +114,154 @@
     });
 
     //make a instance for the heatmap_mapview launch
-    var heatmap_mapView = new heatmapData.mapView();
+ //   var heatmap_mapView = new heatmapData.mapView();
 
+    ////////////////////////////////////
     //Animation Layer definition
-//    var timestamp_hashtable = new Array();
-//
-//    var loadData = function(id) {
-//
-//        var routeLines = [];
-//
-//        ////////////////////////////////////////////////////
-//        //// load bus animation data  ////////
-//        ////////////////////////////////////////////////////
-//
-//        var url = '../Heatmap_sample/GetVehicleLoad_2012-03-01_tram_30mn.json';
-//        //var url = '../Heatmap_sample/GetVL-30mn-First100.json';
-//
-//        // var json_data = {};
-//
-//        //		var json_data_heatmap = [];
-//
-//        $.getJSON(url, function(data) {
-//                //change the xrce data format to heatmap data format
-//                //					console.log(data);
-//
-//                var i = 0;
-//
-//                var j = 0;
-//
-//                var bus_route = L.polyline([[48.70159329801663, 6.211237829048656]]);
-//
-//                var pre_timestamp = 0;
-//                var cur_timestamp = 0;
-//                var LanLat_Array;
-//
-//                $.each(data, function(arrayID, value)
-//                {
-//                    //number of entity in the JSON file.
-//                    i++;
-//
-//                    var time_string = value.Date.replace(/\(|\)/g, "");
-//
-//                    cur_timestamp = time_string.substr(5,13);
-//
-//                    if (cur_timestamp == pre_timestamp)
-//                    {
-//                        LanLat_Array.push({"lat": value.Y, "lon":value.X});
-//                    }
-//                    else
-//                    {
-//                        if (LanLat_Array != null)
-//                        {
-//                            timestamp_hashtable[pre_timestamp] = LanLat_Array;
-//                        }
-//                        pre_timestamp = cur_timestamp;
-//                        LanLat_Array = new Array();
-//                    }
-//
-//                });
-//
-//                console.log(timestamp_hashtable);
-//
-//
-//                /*create array:*/
-//                var marker = new Array();
-//                var timestamp_number = [];
-//                var timestamp_number_id = 0;
-//
-//                for (k in timestamp_hashtable)
-//                {
-//
-//                    timestamp_number.push(k);
-//                }
-//
-//
-//                var drawBus = function(timestamp_id){
-//
-//                    items = timestamp_hashtable[timestamp_number[timestamp_id]];
-//
-//                    console.log(items);
-//
-//
-//                    //pushing items into array each by each and then add markers
-//                    for(var j=0;j<items.length;j++)
-//                    {
-//                        var LamMarker = new L.marker([items[j].lat, items[j].lon]);
-//                        marker.push(LamMarker);
-//                        map.addLayer(marker[j]);
-//                    }
-//
-//
-//                    setTimeout(function(){
-//
-//                        for(var j=0;j<marker.length;j++)
-//                        {
-//                            if (timestamp_number_id < timestamp_number.length)
-//                            {
-//                                map.removeLayer(marker[j]);
-//                            }
-//                        }
-//                        //clear marker
-//                        marker = [];
-//
-//                        if (timestamp_number_id < timestamp_number.length)
-//                        {
-//                            timestamp_number_id++;
-//                            drawBus(timestamp_number_id);
-//                        }
-//                    }, 100);
-//
-//                };
-//
-//                drawBus(timestamp_number_id);
-//
-//
-//            }
-//            // ).error(function(err) {
-//            // alert('An error occurred', err);
-//            // }
-//        );
-//
-//
-//        //		routeLines.push(L.polyline([[48.71159329801663, 6.211237829048656],[52.2462150,14.9634970],[52.3065270,14.8675200],[52.2931010,16.0589740]]));
-//
-//
-//        //		callback(routeLines);
-//
-//
-//    };
-//
-//
-//    loadData(4);
-//
-//    var bikeIcon = L.icon({
-//        iconUrl: 'marker-bike-green-shadowed.png',
-//        iconSize: [25, 39],
-//        iconAnchor: [12, 39],
-//        shadowUrl: null
-//    });
-//
-//    var config = {
-//        tileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
-//        //tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr/{z}/{x}/{y}.png',
-//        overlayTileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
-////      overlayTileUrl : 'http://{s}.tiles.mapbox.com/v3/intertwine.nyc_bike_overlay/{z}/{x}/{y}.png',
-//        tileAttrib : 'Routing powered by <a href="http://opentripplanner.org/">OpenTripPlanner</a>, Map tiles &copy; Development Seed and OpenStreetMap ',
-//        initLatLng : new L.LatLng(48.7015,6.2112), // Nancy
-//        initZoom : 13,
-//        minZoom : 5,
-//        maxZoom : 20
-//    };
-//
-//    var map = L.map('map', {minZoom: config.minZoom, maxZoom: config.maxZoom});
-//
-//    map.addLayer(new L.TileLayer(config.tileUrl, {attribution: config.tileAttrib}));
-//    map.addLayer(new L.TileLayer(config.overlayTileUrl));
-//    map.setView(config.initLatLng, config.initZoom);
+    ///////////////////////////////////
+    var timestamp_hashtable = new Array();
 
-//});
+    var loadData = function(id) {
+
+        var routeLines = [];
+
+        ////////////////////////////////////////////////////
+        //// load bus animation data  ////////
+        ////////////////////////////////////////////////////
+        //var url = '../Heatmap_sample/GetVL-30mn-First100.json';
+
+        // var json_data = {};
+
+        //		var json_data_heatmap = [];
+
+        var processJSON = function(BusMoveData) {
+                //change the xrce data format to heatmap data format
+                //					console.log(data);
+
+                var i = 0;
+
+                var j = 0;
+
+                var bus_route = L.polyline([[48.70159329801663, 6.211237829048656]]);
+
+                var pre_timestamp = 0;
+                var cur_timestamp = 0;
+                var LanLat_Array;
+
+                $.each(data, function(arrayID, value)
+                {
+                    //number of entity in the JSON file.
+                    i++;
+
+                    var time_string = value.Date.replace(/\(|\)/g, "");
+
+                    cur_timestamp = time_string.substr(5,13);
+
+                    if (cur_timestamp == pre_timestamp)
+                    {
+                        LanLat_Array.push({"lat": value.Y, "lon":value.X});
+                    }
+                    else
+                    {
+                        if (LanLat_Array != null)
+                        {
+                            timestamp_hashtable[pre_timestamp] = LanLat_Array;
+                        }
+                        pre_timestamp = cur_timestamp;
+                        LanLat_Array = new Array();
+                    }
+
+                });
+
+                console.log(timestamp_hashtable);
+
+
+                /*create array:*/
+                var marker = new Array();
+                var timestamp_number = [];
+                var timestamp_number_id = 0;
+
+                for (k in timestamp_hashtable)
+                {
+
+                    timestamp_number.push(k);
+                }
+
+
+                var drawBus = function(timestamp_id){
+
+                    items = timestamp_hashtable[timestamp_number[timestamp_id]];
+
+                    console.log(items);
+
+
+                    //pushing items into array each by each and then add markers
+                    for(var j=0;j<items.length;j++)
+                    {
+                        var LamMarker = new L.marker([items[j].lat, items[j].lon]);
+                        marker.push(LamMarker);
+                        map.addLayer(marker[j]);
+                    }
+
+
+                    setTimeout(function(){
+
+                        for(var j=0;j<marker.length;j++)
+                        {
+                            if (timestamp_number_id < timestamp_number.length)
+                            {
+                                map.removeLayer(marker[j]);
+                            }
+                        }
+                        //clear marker
+                        marker = [];
+
+                        if (timestamp_number_id < timestamp_number.length)
+                        {
+                            timestamp_number_id++;
+                            drawBus(timestamp_number_id);
+                        }
+                    }, 100);
+
+                };
+
+                drawBus(timestamp_number_id);
+
+
+            };
+
+
+        //		routeLines.push(L.polyline([[48.71159329801663, 6.211237829048656],[52.2462150,14.9634970],[52.3065270,14.8675200],[52.2931010,16.0589740]]));
+
+
+        //		callback(routeLines);
+
+
+    };
+
+
+    loadData(4);
+
+    var bikeIcon = L.icon({
+        iconUrl: 'marker-bike-green-shadowed.png',
+        iconSize: [25, 39],
+        iconAnchor: [12, 39],
+        shadowUrl: null
+    });
+
+    var config = {
+        tileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
+        //tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr/{z}/{x}/{y}.png',
+        overlayTileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
+//      overlayTileUrl : 'http://{s}.tiles.mapbox.com/v3/intertwine.nyc_bike_overlay/{z}/{x}/{y}.png',
+        tileAttrib : 'Routing powered by <a href="http://opentripplanner.org/">OpenTripPlanner</a>, Map tiles &copy; Development Seed and OpenStreetMap ',
+        initLatLng : new L.LatLng(48.7015,6.2112), // Nancy
+        initZoom : 13
+    };
+
+    var map = L.map('map', {minZoom: config.minZoom, maxZoom: config.maxZoom});
+
+    map.addLayer(new L.TileLayer(config.tileUrl, {attribution: config.tileAttrib}));
+    map.addLayer(new L.TileLayer(config.overlayTileUrl));
+    map.setView(config.initLatLng, config.initZoom);
+
