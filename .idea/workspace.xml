@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087a8ce9-a3c1-454b-b3d5-df31fb677071" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/layers.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/marker-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/marker-icon@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/marker-shadow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/leaflet.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/GetVehicleLoad_2012-03-01_tram_120mn.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/GetVehicleLoad_2012-03-01_tram_120mn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044455776" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371116450449" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371089186820" ignored="false" />
     <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088973922" ignored="false" />
@@ -39,19 +32,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="leaflet.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="leaflet.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="56" selection-start="42950" selection-end="42950" vertical-scroll-proportion="0.6626984">
+            <state line="43" column="34" selection-start="42960" selection-end="42960" vertical-scroll-proportion="-14.153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multi_layer.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="51" selection-start="7090" selection-end="7090" vertical-scroll-proportion="-130.8077">
+            <state line="177" column="43" selection-start="5494" selection-end="5494" vertical-scroll-proportion="0.32539684">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -111,8 +104,8 @@
         <option value="$PROJECT_DIR$/src/GetVehicleLoad_2012-03-01_tram_120mn.json" />
         <option value="$PROJECT_DIR$/src/GetVehicleLoad_2012-03-01_tram_120mn.js" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/GetVehicleLoad_2012-03-01_tram_120mn.js" />
-        <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
+        <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
       </list>
     </option>
   </component>
@@ -332,7 +325,15 @@
       <created>1371044463050</created>
       <updated>1371044463050</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1. combine with the animation&#10;2. it works but there are some sop problem.">
+      <created>1371115001460</created>
+      <updated>1371115001460</updated>
+    </task>
+    <task id="LOCAL-00009" summary="remove the console output">
+      <created>1371116454906</created>
+      <updated>1371116454906</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -420,7 +421,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. integrate bus animation code. &#10;2. include the bus moving data file" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove the console output" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -439,6 +440,8 @@
     <MESSAGE value="delete useless dirs and folders" />
     <MESSAGE value="1. merge the heatmap and animation layer &#10;2. split the js file and the http file" />
     <MESSAGE value="1. integrate bus animation code. &#10;2. include the bus moving data file" />
+    <MESSAGE value="1. combine with the animation&#10;2. it works but there are some sop problem." />
+    <MESSAGE value="remove the console output" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -500,12 +503,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="51" selection-start="7090" selection-end="7090" vertical-scroll-proportion="-130.8077">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="43" column="34" selection-start="42960" selection-end="42960" vertical-scroll-proportion="-14.153846">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -516,10 +517,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="56" selection-start="42950" selection-end="42950" vertical-scroll-proportion="0.6626984">
-          <folding />
+        <state line="177" column="43" selection-start="5494" selection-end="5494" vertical-scroll-proportion="0.32539684">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

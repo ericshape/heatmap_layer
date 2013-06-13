@@ -174,7 +174,7 @@
 
                 });
 
-                console.log(timestamp_hashtable);
+//                console.log(timestamp_hashtable);
 
 
                 /*create array:*/
@@ -193,7 +193,7 @@
 
                     items = timestamp_hashtable[timestamp_number[timestamp_id]];
 
-                    console.log(items);
+ //                   console.log(items);
 
 
                     //pushing items into array each by each and then add markers
