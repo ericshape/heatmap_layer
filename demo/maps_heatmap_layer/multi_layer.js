@@ -1,6 +1,7 @@
 /*
     multi layer libs in Backbone js
 */
+
     // Define the heatmpaData
     var heatmapData = heatmapData || {};
 
@@ -134,9 +135,9 @@
 
         //		var json_data_heatmap = [];
 
-        var processJSON = function(BusMoveData) {
+//        $.getJSON( function(BusMoveData) {
                 //change the xrce data format to heatmap data format
-                //					console.log(data);
+                console.log(BusMoveData);
 
                 var i = 0;
 
@@ -148,7 +149,7 @@
                 var cur_timestamp = 0;
                 var LanLat_Array;
 
-                $.each(data, function(arrayID, value)
+                $.each(BusMoveData, function(arrayID, value)
                 {
                     //number of entity in the JSON file.
                     i++;
@@ -228,7 +229,7 @@
                 drawBus(timestamp_number_id);
 
 
-            };
+//            });
 
 
         //		routeLines.push(L.polyline([[48.71159329801663, 6.211237829048656],[52.2462150,14.9634970],[52.3065270,14.8675200],[52.2931010,16.0589740]]));
