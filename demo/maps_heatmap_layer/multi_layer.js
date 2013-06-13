@@ -137,7 +137,7 @@
 
 //        $.getJSON( function(BusMoveData) {
                 //change the xrce data format to heatmap data format
-                console.log(BusMoveData);
+//                console.log(BusMoveData);
 
                 var i = 0;
 
