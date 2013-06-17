@@ -29,7 +29,7 @@ checkXMLDocObj = function (xmlFile) {
 ///////////////////////////////////
 var timestamp_hashtable = new Array();
 
-var loadData = function(map, id) {
+var loadData = function(map, animiationLayer, id) {
 
     var routeLines = [];
 
@@ -102,14 +102,19 @@ var loadData = function(map, id) {
 
         //                   console.log(items);
 
+        // creat the animation layer
+
 
         //pushing items into array each by each and then add markers
         for(var j=0;j<items.length;j++)
         {
             var LamMarker = new L.marker([items[j].lat, items[j].lon]);
             marker.push(LamMarker);
-            map.addLayer(marker[j]);
+
         }
+
+        L.layerGroup(marker)
+            .addTo(animiationLayer);
 
 
         setTimeout(function(){
@@ -196,7 +201,7 @@ var loadData = function(map, id) {
             );
 
 
-            var animationLayer = null;
+            var animationLayer = L.layerGroup();
 
 
             var heatmapLayer = L.TileLayer.heatMap({
@@ -227,7 +232,7 @@ var loadData = function(map, id) {
             var map = new L.Map('map', {
                 center: new L.LatLng(48.68, 6.17),
                 zoom: 13,
-                layers: [baseLayer, heatmapLayer]
+                layers: [baseLayer, heatmapLayer, animationLayer]
             });
 
             // make accessible for debugging
@@ -236,7 +241,7 @@ var loadData = function(map, id) {
             heatmap_layer = heatmapLayer;
             animation_layer = animationLayer;
 
-            loadData(map, 4);
+            loadData(map, animationLayer, 4);
 
             var bikeIcon = L.icon({
                 iconUrl: 'marker-bike-green-shadowed.png',
@@ -249,8 +254,8 @@ var loadData = function(map, id) {
             //add control part:
             var overlayMaps = {
                 'Basemap': baseLayer,
-                'Heatmap': heatmapLayer
-                // 'Animation': animationLayer
+                'Heatmap': heatmapLayer,
+                'Animation': animationLayer
             };
             var controls = L.control.layers(null, overlayMaps, {collapsed: false});
             controls.addTo(map);
