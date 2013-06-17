@@ -265,6 +265,8 @@ var loadData = function(map, id) {
     var tileIndex = xmlDoc.getElementsByTagName("TileUrls")[0].childNodes;
     var tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild;
 
+    console.log(tileIndex.length);
+
     for (var i=0; i<tileIndex.length; i++){
         console.log(tileContent.textContent);
         tileContent = tileContent.nextSibling;
