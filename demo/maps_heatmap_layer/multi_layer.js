@@ -1,6 +1,58 @@
 /*
     multi layer libs in Backbone js
 */
+////////////////////////////////////
+///  Configuration File Loading
+///////////////////////////////////
+//var Config = require('../../src/config.js').Config;
+//var config = new Config('config_example.js');
+//console.log(config.get('server.port'));
+
+
+
+/////////////////////////////////
+///  Load XML file heleper function
+////////////////////////////////
+
+loadXML = function (xmlFile) {
+    var xmlDoc;
+    if (window.ActiveXObject) {//ie
+        xmlDoc = new ActiveXObject('Microsoft.XMLDOM');
+        xmlDoc.async = false;
+        xmlDoc.load(xmlFile);
+    }//firefox
+    else if (document.implementation && document.implementation.createDocument) {
+        xmlDoc = document.implementation.createDocument('', '', null);
+        xmlDoc.async = false;
+        xmlDoc.load(xmlFile);
+    }
+    else {
+        return null;
+    }
+
+
+    return xmlDoc;
+}
+
+checkXMLDocObj = function (xmlFile) {
+    var xmlDoc = loadXML(xmlFile);
+    if (xmlDoc == null) {
+        alert('There is error to get xml file!');
+    }
+
+    return xmlDoc;
+}
+
+function readxml()
+{
+    xmlHttp = new window.XMLHttpRequest();
+    xmlHttp.open("GET","Cities.xml",false);
+    xmlHttp.send(null);
+    xmlDoc = xmlHttp.responseXML.documentElement;
+
+    return xmlDoc;
+}
+
 
 ////////////////////////////////////
 //Animation Layer definition
@@ -236,6 +288,12 @@ var loadData = function(map, id) {
 
 
     });
+
+    // console output the file
+    var xmlDoc=loadXMLDoc("Cities.xml");
+    var messages = xmlDoc.getElementsByTagName("CityLogoFilePath");
+
+    console.log(messages);
 
     //make a instance for the heatmap_mapview launch
     var heatmap_mapView = new heatmapData.mapView();
