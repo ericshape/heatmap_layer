@@ -13,42 +13,12 @@
 /////////////////////////////////
 ///  Load XML file heleper function
 ////////////////////////////////
-
-loadXML = function (xmlFile) {
-    var xmlDoc;
-    if (window.ActiveXObject) {//ie
-        xmlDoc = new ActiveXObject('Microsoft.XMLDOM');
-        xmlDoc.async = false;
-        xmlDoc.load(xmlFile);
-    }//firefox
-    else if (document.implementation && document.implementation.createDocument) {
-        xmlDoc = document.implementation.createDocument('', '', null);
-        xmlDoc.async = false;
-        xmlDoc.load(xmlFile);
-    }
-    else {
-        return null;
-    }
-
-
-    return xmlDoc;
-}
-
+// If the xml is null, return the error information.
 checkXMLDocObj = function (xmlFile) {
-    var xmlDoc = loadXML(xmlFile);
+    var xmlDoc = loadXMLDoc(xmlFile);
     if (xmlDoc == null) {
         alert('There is error to get xml file!');
     }
-
-    return xmlDoc;
-}
-
-function readxml()
-{
-    xmlHttp = new window.XMLHttpRequest();
-    xmlHttp.open("GET","Cities.xml",false);
-    xmlHttp.send(null);
-    xmlDoc = xmlHttp.responseXML.documentElement;
 
     return xmlDoc;
 }
@@ -290,7 +260,7 @@ var loadData = function(map, id) {
     });
 
     // console output the file
-    var xmlDoc=loadXMLDoc("Cities.xml");
+    var xmlDoc=checkXMLDocObj("Cities.xml");
     var messages = xmlDoc.getElementsByTagName("CityLogoFilePath");
 
     console.log(messages);
