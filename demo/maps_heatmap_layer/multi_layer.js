@@ -267,6 +267,7 @@ var loadData = function(map, id) {
 
     for (var i=0; i<tileIndex.length; i++){
         console.log(tileContent.textContent);
+        tileContent = tileContent.nextSibling;
     }
 
 

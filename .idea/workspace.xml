@@ -7,10 +7,10 @@
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470313087" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470475114" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371459568574" ignored="false" />
-    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470463635" ignored="false" />
+    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470556289" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044136462" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088904378" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +46,7 @@
           <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="269" column="49" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.6647834">
+                <state line="270" column="30" selection-start="7423" selection-end="7423" vertical-scroll-proportion="0.6967985">
                   <folding />
                 </state>
               </provider>
@@ -360,7 +360,11 @@
       <created>1371470319146</created>
       <updated>1371470319146</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="xml tile info integeration.">
+      <created>1371470480068</created>
+      <updated>1371470480068</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -582,7 +586,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="49" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.6647834">
+        <state line="270" column="30" selection-start="7423" selection-end="7423" vertical-scroll-proportion="0.6967985">
           <folding />
         </state>
       </provider>
