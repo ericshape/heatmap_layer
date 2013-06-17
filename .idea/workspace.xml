@@ -7,10 +7,10 @@
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371460120817" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470313087" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371459568574" ignored="false" />
-    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470272731" ignored="false" />
+    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371470463635" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044136462" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088904378" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +46,7 @@
           <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="268" column="47" selection-start="7367" selection-end="7367" vertical-scroll-proportion="0.63276833">
+                <state line="269" column="49" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.6647834">
                   <folding />
                 </state>
               </provider>
@@ -356,7 +356,11 @@
       <created>1371460126306</created>
       <updated>1371460126306</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="xml tile info integeration.">
+      <created>1371470319146</created>
+      <updated>1371470319146</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -444,7 +448,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify the xml reader" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml tile info integeration." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -469,6 +473,7 @@
     <MESSAGE value="combine with heatmap and animation" />
     <MESSAGE value="add xml reader function" />
     <MESSAGE value="modify the xml reader" />
+    <MESSAGE value="xml tile info integeration." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -577,7 +582,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="47" selection-start="7367" selection-end="7367" vertical-scroll-proportion="0.63276833">
+        <state line="269" column="49" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.6647834">
           <folding />
         </state>
       </provider>
