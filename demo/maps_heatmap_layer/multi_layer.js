@@ -261,9 +261,14 @@ var loadData = function(map, id) {
 
     // console output the file
     var xmlDoc=checkXMLDocObj("Cities.xml");
-    var messages = xmlDoc.getElementsByTagName("CityLogoFilePath");
 
-    console.log(messages);
+    var tileIndex = xmlDoc.getElementsByTagName("TileUrls")[0].childNodes;
+    var tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild;
+
+    for (var i=0; i<tileIndex.length; i++){
+        console.log(tileContent.nodeName);
+    }
+
 
     //make a instance for the heatmap_mapview launch
     var heatmap_mapView = new heatmapData.mapView();
