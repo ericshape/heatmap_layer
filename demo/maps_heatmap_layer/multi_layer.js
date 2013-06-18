@@ -101,7 +101,8 @@ var loadData = function (map, animiationLayer, id) {
     }
 
 
-    var drawBus = function (timestamp_id) {
+    var drawBus;
+    drawBus = function (timestamp_id) {
 
         items = timestamp_hashtable[timestamp_number[timestamp_id]];
 
@@ -117,19 +118,19 @@ var loadData = function (map, animiationLayer, id) {
 
         }
 
+
+
         L.layerGroup(marker)
             .addTo(animiationLayer);
 
 
         setTimeout(function () {
 
-            for (var j = 0; j < marker.length; j++) {
-                if (timestamp_number_id < timestamp_number.length) {
-                    map.removeLayer(marker[j]);
-                }
-            }
+            //clear layers
+            animiationLayer.clearLayers();
+
             //clear marker
-            marker = [];
+            marker.length = 0;
 
             if (timestamp_number_id < timestamp_number.length) {
                 timestamp_number_id++;
@@ -195,20 +196,20 @@ heatmapData.mapView = Backbone.View.extend({
     initialize: function () {
 
         // console output the file
-        var xmlDoc = checkXMLDocObj("Cities.xml");
-        var messages = xmlDoc.getElementsByTagName("TileUrls");
-
-        var tileIndex = xmlDoc.getElementsByTagName("TileUrls")[0].childNodes;
-        var tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild;
-
-        console.log(tileIndex.length);
-
-        for (var i = 0; i < tileIndex.length; i++) {
-            console.log(tileContent.textContent);
-            tileContent = tileContent.nextSibling;
-        }
-
-        tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild.nextSibling;
+//        var xmlDoc = checkXMLDocObj("Cities.xml");
+//        var messages = xmlDoc.getElementsByTagName("TileUrls");
+//
+//        var tileIndex = xmlDoc.getElementsByTagName("TileUrls")[0].childNodes;
+//        var tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild;
+//
+//        console.log(tileIndex.length);
+//
+//        for (var i = 0; i < tileIndex.length; i++) {
+//            console.log(tileContent.textContent);
+//            tileContent = tileContent.nextSibling;
+//        }
+//
+//        tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild.nextSibling;
 
         //////////////////////////
         /// Map Tile Layer Config
@@ -331,7 +332,7 @@ heatmapData.mapView = Backbone.View.extend({
             'Heatmap': heatmapLayer,
             'Animation': animationLayer
         };
-        var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: false });
+        var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: true });
         controls.addTo(map);
     }
 

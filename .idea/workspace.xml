@@ -7,10 +7,10 @@
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371548827084" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371550736420" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371459568574" ignored="false" />
-    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371550704059" ignored="false" />
+    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371570631744" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044136462" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088904378" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +31,7 @@
     <favorites_list name="heatmap_layer" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.73041636">
+    <splitter split-orientation="horizontal" split-proportion="0.7050106">
       <split-first>
         <leaf>
           <file leaf-file-name="leaflet.html" pinned="false" current="false" current-in-tab="false">
@@ -46,7 +46,7 @@
           <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="326" column="62" selection-start="10254" selection-end="10254" vertical-scroll-proportion="1.0487804">
+                <state line="124" column="61" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.29387754">
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -79,7 +79,7 @@
           <file leaf-file-name="heatmap-leaflet.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/heatmap-leaflet.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="105" column="31" selection-start="3254" selection-end="3254" vertical-scroll-proportion="0.031894933">
+                <state line="179" column="12" selection-start="5433" selection-end="5434" vertical-scroll-proportion="0.5877551">
                   <folding />
                 </state>
               </provider>
@@ -390,7 +390,11 @@
       <created>1371547984959</created>
       <updated>1371547984959</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add Xtile layer control">
+      <created>1371550749613</created>
+      <updated>1371550749613</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -417,11 +421,12 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24982357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13620324" sideWeight="0.71393037" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28606966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13620324" sideWeight="0.71321696" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28678304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16513762" sideWeight="0.29426435" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -430,7 +435,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -478,7 +482,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync with vs 2012" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Xtile layer control" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -506,6 +510,7 @@
     <MESSAGE value="xml tile info integeration." />
     <MESSAGE value="add animation layer" />
     <MESSAGE value="sync with vs 2012" />
+    <MESSAGE value="add Xtile layer control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -563,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/heatmap-leaflet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="31" selection-start="3254" selection-end="3254" vertical-scroll-proportion="0.031894933">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/leaflet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -610,9 +608,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/heatmap-leaflet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="12" selection-start="5433" selection-end="5434" vertical-scroll-proportion="0.5877551">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="326" column="62" selection-start="10254" selection-end="10254" vertical-scroll-proportion="1.0487804">
+        <state line="124" column="61" selection-start="3099" selection-end="3099" vertical-scroll-proportion="0.29387754">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
