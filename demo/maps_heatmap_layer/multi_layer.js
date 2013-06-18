@@ -25,7 +25,7 @@
 ////////////////////////////////
 // If the xml is null, return the error information.
 checkXMLDocObj = function (xmlFile) {
-    var xmlDoc = loadXMLDoc(xmlFile);
+    var xmlDoc = loadXMLDoc(xmlFile);    https://www.macupdate.com/
     if (xmlDoc == null) {
         alert('There is error to get xml file!');
     }
@@ -210,7 +210,46 @@ heatmapData.mapView = Backbone.View.extend({
 
         tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild.nextSibling;
 
-        var colorLayer = L.tileLayer(
+        //////////////////////////
+        /// Map Tile Layer Config
+        /////////////////////////
+
+        var whiteOnBlackLayer = L.tileLayer(
+            'http://spider:56721/WhiteOnBlack/{z}/{x}/{y}.png ', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var blackOnWhiteLayer = L.tileLayer(
+            'http://spider:56721/BlackOnWhite/{z}/{x}/{y}.png ', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var dayEagleLayer = L.tileLayer(
+            'http://spider:56721/DayEagle/{z}/{x}/{y}.png ', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var nightHawkLayer = L.tileLayer(
+            'http://spider:56721/NightHAWK/{z}/{x}/{y}.png ', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var blackOnBlackLayer = L.tileLayer(
+            'http://spider:56721/BlackOnBlack/{z}/{x}/{y}.png ', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var colorFullLayer = L.tileLayer(
             'http://spider:56721/ColorFull/{z}/{x}/{y}.png ', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
                 maxZoom: 18
@@ -218,12 +257,13 @@ heatmapData.mapView = Backbone.View.extend({
         );
 
 
-        var baseLayer = L.tileLayer(
+        var cloudmadeLayer = L.tileLayer(
             'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
                 maxZoom: 18
             }
         );
+
 
 
         var animationLayer = L.layerGroup();
@@ -257,7 +297,7 @@ heatmapData.mapView = Backbone.View.extend({
         var map = new L.Map('map', {
             center: new L.LatLng(48.68, 6.17),
             zoom: 13,
-            layers: [colorLayer, heatmapLayer, animationLayer]
+            layers: [colorFullLayer, heatmapLayer, animationLayer]
         });
 
         // make accessible for debugging
@@ -275,14 +315,23 @@ heatmapData.mapView = Backbone.View.extend({
             shadowUrl: null
         });
 
+        var baseMaps = {
+            'Cloudmade Layer': cloudmadeLayer,
+            'Xtile: ColorFull': colorFullLayer,
+            'Xtile: WhiteOnBlack':whiteOnBlackLayer,
+            'Xtile: BlackOnWhite': blackOnWhiteLayer,
+            'Xtile: DayEagle': dayEagleLayer,
+            'Xtile: NightHawk': nightHawkLayer,
+            'Xtile: BlackOnBlack': blackOnBlackLayer
+        };
+
 
         //add control part:
         var overlayMaps = {
-            'Xtilemap': colorLayer,
             'Heatmap': heatmapLayer,
             'Animation': animationLayer
         };
-        var controls = L.control.layers(null, overlayMaps, { collapsed: false });
+        var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: false });
         controls.addTo(map);
     }
 
