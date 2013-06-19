@@ -1,0 +1,976 @@
+{
+	"City" : {
+		"Id" : "2",
+		"Name" : "Nancy",
+		"CityLogoFilePath" : "\/Xerox.CityDashboard;Component\/Themes\/Images\/nancy.png",
+		"DefaultEndDate" : "\/Date(1335841200000)\/",
+		"DefaultStartDate" : "\/Date(1330570800000)\/",
+		"MaxBound" : {
+			"CentralPoint" : null,
+			"Geographies" : [],
+			"Id" : "c35553df-b22b-45da-862f-ab78a73d88da",
+			"IsClosedArea" : false,
+			"Locations" : [{
+					"Id" : null,
+					"Name" : null,
+					"X" : 6.4138,
+					"Y" : 48.7888
+				}
+			]
+		},
+		"MaxZoomLevels" : 17,
+		"MinBound" : {
+			"CentralPoint" : null,
+			"Geographies" : [],
+			"Id" : "4c96bfb6-7f01-42dd-a5c2-b7e979541d53",
+			"IsClosedArea" : false,
+			"Locations" : [{
+					"Id" : null,
+					"Name" : null,
+					"X" : 5.9495,
+					"Y" : 48.5827
+				}
+			]
+		},
+		"TileUrls" : ["http:\/\/spider:56721\/ColorFull\/{0}\/{1}\/{2}.png", "http:\/\/spider:56721\/WhiteOnBlack\/{0}\/{1}\/{2}.png", "http:\/\/spider:56721\/BlackOnWhite\/{0}\/{1}\/{2}.png", "http:\/\/spider:56721\/DayEagle\/{0}\/{1}\/{2}.png", "http:\/\/spider:56721\/NightHAWK\/{0}\/{1}\/{2}.png", "http:\/\/spider:56721\/BlackOnBlack\/{0}\/{1}\/{2}.png", "http:\/\/dolent.grenoble.xrce.xerox.com\/GeoServer\/tiles\/{0}\/{1}\/{2}.png", "http:\/\/services.open.xerox.com\/WebApp.svc\/OpenStreetMapTiles\/{0}\/{1}\/{2}.png", "http:\/\/mt1.google.com\/vt\/lyrs=m@169000000&hl=en&src=api&x={1}&y={2}&z={0}"]
+	},
+	"Visualizations" : [{
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330567200000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1335834000000+0200)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : true,
+						"CallbackType" : "LocationMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the stations from which one wants to know users destinations.",
+						"Name" : "Station Ids",
+						"ProviderServiceOperation" : "NetworkService.GetStops",
+						"SystemName" : "stopIds",
+						"TypeName" : "System.String"
+					},
+					"Value" : [{
+							"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+							"Id" : "1625",
+							"Name" : "AIR LORRAINE"
+						}, {
+							"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+							"Id" : "1159",
+							"Name" : "ALBATRE"
+						}
+					]
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Gets the destination stations of some specified origins",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Find Destinations",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : true,
+						"CallbackType" : "LocationMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the stations from which one wants to know users destinations.",
+						"Name" : "Station Ids",
+						"ProviderServiceOperation" : "NetworkService.GetStops",
+						"SystemName" : "stopIds",
+						"TypeName" : "System.String"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IDictionary`2[Xerox.CityDashboard.Entities.LocationMetadata,System.Int32]",
+				"SystemName" : "GetDestinations",
+				"Unit" : "number of users"
+			},
+			"ServiceName" : "OriginDestinationService",
+			"ShortSummary" : "Point Heatmap Visualization\nStart Date: 03\/01\/2012 03:00:00\nEnd Date: 05\/01\/2012 03:00:00\nStation Ids: 1625 (AIR LORRAINE), 1159 (ALBATRE)",
+			"VisualizationName" : "Find Destinations (Heatmap)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Find Destinations (Heatmap)"
+				}, {
+					"Key" : "PointRadius",
+					"Value" : 15
+				}, {
+					"Key" : "Gradients",
+					"Value" : [{
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 0,
+								"B" : 255,
+								"G" : 255,
+								"R" : 255
+							},
+							"Offset" : 0
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 180,
+								"B" : 61,
+								"G" : 52,
+								"R" : 53
+							},
+							"Offset" : 0.10000000149011612
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 242,
+								"G" : 234,
+								"R" : 0
+							},
+							"Offset" : 0.20000000298023224
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 65,
+								"G" : 180,
+								"R" : 0
+							},
+							"Offset" : 0.40000000596046448
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 20,
+								"G" : 252,
+								"R" : 220
+							},
+							"Offset" : 0.60000002384185791
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 0,
+								"G" : 100,
+								"R" : 255
+							},
+							"Offset" : 0.800000011920929
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 1,
+								"G" : 1,
+								"R" : 255
+							},
+							"Offset" : 1
+						}
+					]
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}, {
+					"Key" : "Symbol",
+					"Value" : "\/Xerox.CityDashboard;Component\/Themes\/Images\/station.png"
+				}, {
+					"Key" : "RelativeSize",
+					"Value" : 1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Heatmap.PointHeatmapVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the date and time to get travel time from",
+						"Name" : "Desired Time",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "desiredTime",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330585200000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : true,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "LocationMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the station to get the travel time for",
+						"Name" : "Station Id",
+						"ProviderServiceOperation" : "NetworkService.GetStops",
+						"SystemName" : "stopIds",
+						"TypeName" : "System.String"
+					},
+					"Value" : [{
+							"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+							"Id" : "1022",
+							"Name" : "CRISTALLERIES"
+						}
+					]
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Gets the theoritical travel times from a given station",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get Theoritical Travel Times",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the date and time to get travel time from",
+						"Name" : "Desired Time",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "desiredTime",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : true,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "LocationMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the station to get the travel time for",
+						"Name" : "Station Id",
+						"ProviderServiceOperation" : "NetworkService.GetStops",
+						"SystemName" : "stopIds",
+						"TypeName" : "System.String"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IDictionary`2[Xerox.CityDashboard.Entities.Location,System.Int32]",
+				"SystemName" : "GetTimeCoveragePoints",
+				"Unit" : "minutes"
+			},
+			"ServiceName" : "TravelTimeService",
+			"ShortSummary" : "Distance Heatmap Visualization\nDesired Time: 03\/01\/2012 08:00:00\nStation Id: 1022 (CRISTALLERIES)",
+			"VisualizationName" : "Travel Times (Distance Heatmap)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Travel Times (Distance Heatmap)"
+				}, {
+					"Key" : "PointRadius",
+					"Value" : 15
+				}, {
+					"Key" : "Gradients",
+					"Value" : [{
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 0,
+								"B" : 255,
+								"G" : 255,
+								"R" : 255
+							},
+							"Offset" : 0
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 180,
+								"B" : 61,
+								"G" : 52,
+								"R" : 53
+							},
+							"Offset" : 0.10000000149011612
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 242,
+								"G" : 234,
+								"R" : 0
+							},
+							"Offset" : 0.20000000298023224
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 65,
+								"G" : 180,
+								"R" : 0
+							},
+							"Offset" : 0.40000000596046448
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 20,
+								"G" : 252,
+								"R" : 220
+							},
+							"Offset" : 0.60000002384185791
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 0,
+								"G" : 100,
+								"R" : 255
+							},
+							"Offset" : 0.800000011920929
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 1,
+								"G" : 1,
+								"R" : 255
+							},
+							"Offset" : 1
+						}
+					]
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}, {
+					"Key" : "Symbol",
+					"Value" : "\/Xerox.CityDashboard;Component\/Themes\/Images\/station.png"
+				}, {
+					"Key" : "RelativeSize",
+					"Value" : 1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Heatmap.DistanceHeatmapVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330581600000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330588800000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : true,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "ShapeMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the route for which vehicle load data is collected",
+						"Name" : "Route Id",
+						"ProviderServiceOperation" : "NetworkService.GetRoutes",
+						"SystemName" : "routeId",
+						"TypeName" : "System.String"
+					},
+					"Value" : [{
+							"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+							"Id" : "34",
+							"Name" : "134 135 (Villers Lycee Stanislas \/ Maxevi)"
+						}
+					]
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Gets the vehicle load data all the way along the provided route & time period. Vehicle load and location data are interpolated between stops.",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get Interpolated Vehicle Load",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : true,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "ShapeMetadata",
+						"DefaultValue" : null,
+						"Description" : "Specifies the route for which vehicle load data is collected",
+						"Name" : "Route Id",
+						"ProviderServiceOperation" : "NetworkService.GetRoutes",
+						"SystemName" : "routeId",
+						"TypeName" : "System.String"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IList`1[Xerox.CityDashboard.Entities.VehicleLocation]",
+				"SystemName" : "GetInterpolatedVehicleLoad",
+				"Unit" : "Number of passengers"
+			},
+			"ServiceName" : "VehicleLoadService",
+			"ShortSummary" : "Heatmap Entity Tracker Visualization\nStart Date: 03\/01\/2012 07:00:00\nEnd Date: 03\/01\/2012 09:00:00\nRoute Id: 34 (134 135 (Villers Lycee Stanislas \/ Maxevi))",
+			"VisualizationName" : "Get Interpolated Vehicle Load (Entity Tracker)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Get Interpolated Vehicle Load (Entity Tracker)"
+				}, {
+					"Key" : "AlphaChannel",
+					"Value" : {
+						"__type" : "Percentage:#Xerox.CityDashboard.Entities",
+						"Percent" : 80
+					}
+				}, {
+					"Key" : "RelativeWidth",
+					"Value" : 1
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.HeatmapEntity.HeatmapEntityTrackerVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period to get route from",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330567200000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period to get route from",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1335834000000+0200)\/"
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Retrieves all the available routes of the city for the specified period",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get All Routes",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) start of the period to get route from",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "Specifies the (inclusive) end of the period to get route from",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IList`1[Xerox.CityDashboard.Entities.ShapeMetadata]",
+				"SystemName" : "GetRoutes",
+				"Unit" : null
+			},
+			"ServiceName" : "NetworkService",
+			"ShortSummary" : "Shape Visualization\nStart Date: 03\/01\/2012 03:00:00\nEnd Date: 05\/01\/2012 03:00:00",
+			"VisualizationName" : "Get Routes (Shapes)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Get Routes (Shapes)"
+				}, {
+					"Key" : "AlphaChannel",
+					"Value" : {
+						"__type" : "Percentage:#Xerox.CityDashboard.Entities",
+						"Percent" : 80
+					}
+				}, {
+					"Key" : "RelativeWidth",
+					"Value" : 1
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Shape.ShapeVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "The city for which the stations are retrieved.",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Retrieves all the stations of the city.",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get All Stations",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "The city for which the stations are retrieved.",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IList`1[Xerox.CityDashboard.Entities.LocationMetadata]",
+				"SystemName" : "GetStops",
+				"Unit" : null
+			},
+			"ServiceName" : "NetworkService",
+			"ShortSummary" : "Symbol Visualization",
+			"VisualizationName" : "Get Stations (Symbols)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Get Stations (Symbols)"
+				}, {
+					"Key" : "Symbol",
+					"Value" : "\/Xerox.CityDashboard;Component\/Themes\/Images\/station.png"
+				}, {
+					"Key" : "RelativeSize",
+					"Value" : 1
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Symbol.SymbolVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "The city for which the load information is calculated",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "The start date of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1330567200000+0100)\/"
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "The end date of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					},
+					"Value" : "\/Date(1335834000000+0200)\/"
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Gets the number of boardings for every stations over the provided period of time",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get Every Stations Load",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "The city for which the load information is calculated",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "The start date of the period",
+						"Name" : "Start Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "startDate",
+						"TypeName" : "System.DateTime"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : null,
+						"Description" : "The end date of the period",
+						"Name" : "End Date",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "endDate",
+						"TypeName" : "System.DateTime"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IDictionary`2[Xerox.CityDashboard.Entities.Location,System.Int32]",
+				"SystemName" : "GetAllStationsLoad",
+				"Unit" : "Number of Boardings"
+			},
+			"ServiceName" : "StationLoadService",
+			"ShortSummary" : "Point Heatmap Visualization\nStart Date: 03\/01\/2012 03:00:00\nEnd Date: 05\/01\/2012 03:00:00",
+			"VisualizationName" : "Stations Load (Heatmap)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "Stations Load (Heatmap)"
+				}, {
+					"Key" : "PointRadius",
+					"Value" : 15
+				}, {
+					"Key" : "Gradients",
+					"Value" : [{
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 0,
+								"B" : 255,
+								"G" : 255,
+								"R" : 255
+							},
+							"Offset" : 0
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 180,
+								"B" : 61,
+								"G" : 52,
+								"R" : 53
+							},
+							"Offset" : 0.10000000149011612
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 242,
+								"G" : 234,
+								"R" : 0
+							},
+							"Offset" : 0.20000000298023224
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 65,
+								"G" : 180,
+								"R" : 0
+							},
+							"Offset" : 0.40000000596046448
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 20,
+								"G" : 252,
+								"R" : 220
+							},
+							"Offset" : 0.60000002384185791
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 0,
+								"G" : 100,
+								"R" : 255
+							},
+							"Offset" : 0.800000011920929
+						}, {
+							"__type" : "GradientStop:#System.Windows.Media",
+							"Color" : {
+								"A" : 220,
+								"B" : 1,
+								"G" : 1,
+								"R" : 255
+							},
+							"Offset" : 1
+						}
+					]
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Heatmap.PointHeatmapVisualization"
+		}, {
+			"Arguments" : [{
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					},
+					"Value" : {
+						"__type" : "SerializableEntityBase:#Xerox.CityDashboard.Entities",
+						"Id" : "2",
+						"Name" : "Nancy"
+					}
+				}, {
+					"Key" : {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : "10",
+						"Description" : "Specifies the desired number of zones",
+						"Name" : "Number of zones",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "numberOfZones",
+						"TypeName" : "System.Int32"
+					},
+					"Value" : 10
+				}
+			],
+			"OperationToExecute" : {
+				"Description" : "Gets the 'Origin\/Destination zones' from the users travels",
+				"IsIsExtraInformationOperation" : false,
+				"Name" : "Get OD per zone",
+				"Parameters" : [{
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : "City",
+						"DefaultValue" : null,
+						"Description" : "Specifies the city for this operation",
+						"Name" : "City Id",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "cityId",
+						"TypeName" : "System.String"
+					}, {
+						"AllowMultipleCalls" : false,
+						"AllowMultipleValues" : false,
+						"CallbackType" : null,
+						"DefaultValue" : "10",
+						"Description" : "Specifies the desired number of zones",
+						"Name" : "Number of zones",
+						"ProviderServiceOperation" : null,
+						"SystemName" : "numberOfZones",
+						"TypeName" : "System.Int32"
+					}
+				],
+				"ReturnTypeName" : "System.Collections.Generic.IList`1[Xerox.CityDashboard.Entities.ShapeMetadata]",
+				"SystemName" : "GetOriginDestinationZoning",
+				"Unit" : null
+			},
+			"ServiceName" : "OriginDestinationService",
+			"ShortSummary" : "Shape Visualization\nNumber of zones: 10",
+			"VisualizationName" : "OD per zone (Shapes)",
+			"VisualizationSettings" : [{
+					"Key" : "Name",
+					"Value" : "OD per zone (Shapes)"
+				}, {
+					"Key" : "AlphaChannel",
+					"Value" : {
+						"__type" : "Percentage:#Xerox.CityDashboard.Entities",
+						"Percent" : 80
+					}
+				}, {
+					"Key" : "RelativeWidth",
+					"Value" : 1
+				}, {
+					"Key" : "UpdateCyclesMilliseconds",
+					"Value" : -1
+				}
+			],
+			"VisualizationType" : "Xerox.CityDashboard.Visualizations.Shape.ShapeVisualization"
+		}
+	]
+}
