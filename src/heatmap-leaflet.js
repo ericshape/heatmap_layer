@@ -129,8 +129,8 @@
 
          dataset.forEach(function(d) {
              self._quad.insert({
-                 x: d.Key.Y,
-                 y: d.Key.X,
+                 x: d.Key.X,
+                 y: d.Key.Y,
                  value: d.Value
              });
          });
