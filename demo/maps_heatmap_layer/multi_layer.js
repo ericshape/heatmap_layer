@@ -18,6 +18,11 @@
 //var config = new Config('config_example.js');
 //console.log(config.get('server.port'));
 
+/////////////////////////////////
+///  Read the JSON file for the configuration
+////////////////////////////////
+
+
 
 
 /////////////////////////////////
@@ -293,7 +298,8 @@ heatmapData.mapView = Backbone.View.extend({
                 value: i
             });
         }
-        heatmapLayer.setData(testData.data);
+
+        heatmapLayer.setData_X_Y(getEveryStationLoadData);
 
         var map = new L.Map('map', {
             center: new L.LatLng(48.68, 6.17),

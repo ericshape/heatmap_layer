@@ -1,4 +1,4 @@
-[{
+var getEveryStationLoadData = [{
 		"Key" : {
 			"X" : 6.155707,
 			"Y" : 48.657547
