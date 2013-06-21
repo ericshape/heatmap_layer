@@ -1,4 +1,4 @@
-[{
+var findDestination = [{
 		"Key" : {
 			"X" : 6.130139,
 			"Y" : 48.656769,

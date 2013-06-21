@@ -273,7 +273,7 @@ heatmapData.mapView = Backbone.View.extend({
         /////////////////////////////////
         /// Bus Move Animation Layer
         ////////////////////////////////
-        var animationLayer = L.layerGroup();
+        var animationLayer =  L.layerGroup();
 
         loadData(map, animationLayer, 4);
 
@@ -286,7 +286,7 @@ heatmapData.mapView = Backbone.View.extend({
             // absolute: radius in meters, relative: radius in pixels
             radius: { value: 100, absolute: true },
             //radius: { value: 20, absolute: false },
-            opacity: 0.8,
+            opacity: 0.9,
             gradient: {
                 0.45: "rgb(0,0,255)",
                 0.55: "rgb(0,255,255)",
@@ -301,14 +301,15 @@ heatmapData.mapView = Backbone.View.extend({
 
 
         ///////////////////////////////
-        ///  Find Destination Heatmap
+        ///  travel time Heatmap
         //////////////////////////////
+
         var travelTimeLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
             radius: { value: 100, absolute: true },
             //radius: { value: 20, absolute: false },
-            opacity: 0.8,
+            opacity: 0.9,
             gradient: {
                 0.45: "rgb(0,0,255)",
                 0.55: "rgb(0,255,255)",
@@ -321,6 +322,28 @@ heatmapData.mapView = Backbone.View.extend({
         // heatmap data set
         travelTimeLayer.setData_X_Y(travelTime);
 
+
+        ///////////////////////////////
+        ///  Find Destination Heatmap
+        //////////////////////////////
+
+        var findDestinationLayer = L.TileLayer.heatMap({
+            // radius could be absolute or relative
+            // absolute: radius in meters, relative: radius in pixels
+            radius: { value: 100, absolute: true },
+            //radius: { value: 20, absolute: false },
+            opacity: 0.9,
+            gradient: {
+                0.45: "rgb(0,0,255)",
+                0.55: "rgb(0,255,255)",
+                0.65: "rgb(0,255,0)",
+                0.95: "yellow",
+                1.0: "rgb(255,0,0)"
+            }
+        });
+
+        // heatmap data set
+        findDestinationLayer.setData_X_Y(findDestination);
 
 
         ////////////////////////////
@@ -374,7 +397,8 @@ heatmapData.mapView = Backbone.View.extend({
         var overlayMaps = {
             'Heatmap': heatmapLayer,
             'Animation': animationLayer,
-            'Travel Time': travelTimeLayer
+            'Travel Time': travelTimeLayer,
+            'Find Destination': findDestinationLayer
         };
 
 
