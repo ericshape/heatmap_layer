@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087a8ce9-a3c1-454b-b3d5-df31fb677071" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_travelTime.json" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_travelTime.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371735182318" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371819218219" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371819003499" ignored="false" />
     <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371818800337" ignored="false" />
@@ -52,7 +50,7 @@
           <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="273" column="57" selection-start="8493" selection-end="8493" vertical-scroll-proportion="0.32380953">
+                <state line="367" column="60" selection-start="11521" selection-end="11521" vertical-scroll-proportion="0.53861386">
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -76,7 +74,7 @@
           <file leaf-file-name="heatmap-leaflet.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/heatmap-leaflet.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="132" column="28" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.45986393">
+                <state line="132" column="28" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.66930693">
                   <folding />
                 </state>
               </provider>
@@ -442,7 +440,11 @@
       <created>1371735186499</created>
       <updated>1371735186499</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add travel time heatmap layer">
+      <created>1371819223549</created>
+      <updated>1371819223549</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -473,8 +475,8 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24982357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13620324" sideWeight="0.71321696" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28678304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13620324" sideWeight="0.71321696" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28678304" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16513762" sideWeight="0.29426435" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -530,7 +532,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="heatmap radius" />
+    <option name="LAST_COMMIT_MESSAGE" value="add travel time heatmap layer" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -564,6 +566,7 @@
     <MESSAGE value="add json file and json config folder" />
     <MESSAGE value="heatmap dataset reset function" />
     <MESSAGE value="heatmap radius" />
+    <MESSAGE value="add travel time heatmap layer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,7 +644,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/heatmap-leaflet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="28" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.45986393">
+        <state line="132" column="28" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.66930693">
           <folding />
         </state>
       </provider>
@@ -676,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="57" selection-start="8493" selection-end="8493" vertical-scroll-proportion="0.32380953">
+        <state line="367" column="60" selection-start="11521" selection-end="11521" vertical-scroll-proportion="0.53861386">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

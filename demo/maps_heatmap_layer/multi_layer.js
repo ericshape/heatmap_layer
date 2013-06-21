@@ -284,7 +284,7 @@ heatmapData.mapView = Backbone.View.extend({
         var heatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 20, absolute: true },
+            radius: { value: 100, absolute: true },
             //radius: { value: 20, absolute: false },
             opacity: 0.8,
             gradient: {
@@ -306,7 +306,7 @@ heatmapData.mapView = Backbone.View.extend({
         var travelTimeLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 20, absolute: true },
+            radius: { value: 100, absolute: true },
             //radius: { value: 20, absolute: false },
             opacity: 0.8,
             gradient: {
@@ -373,8 +373,8 @@ heatmapData.mapView = Backbone.View.extend({
         ///////////////////////////
         var overlayMaps = {
             'Heatmap': heatmapLayer,
-            'Animation': animationLayer
- //           'Travel Time': travelTimeLayer
+            'Animation': animationLayer,
+            'Travel Time': travelTimeLayer
         };
 
 
