@@ -270,11 +270,17 @@ heatmapData.mapView = Backbone.View.extend({
             }
         );
 
-
-
+        /////////////////////////////////
+        /// Bus Move Animation Layer
+        ////////////////////////////////
         var animationLayer = L.layerGroup();
 
+        loadData(map, animationLayer, 4);
 
+
+        /////////////////////////////////
+        ///  Every Station Load Heatmap
+        /////////////////////////////////
         var heatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
@@ -290,33 +296,57 @@ heatmapData.mapView = Backbone.View.extend({
             }
         });
 
-        //Add heatmap data to grenoble area for debug.
-        for (var i = 1; i < 100; i++) {
-            testData.data.push({
-                lat: i * 0.01 + 48.68,
-                lon: i * 0.01 + 6.17,
-                value: i
-            });
-        }
-
-        //heatmapLayer.setData(testData.data);
-
+        // heatmap data set
         heatmapLayer.setData_X_Y(getEveryStationLoadData);
+
+
+        ///////////////////////////////
+        ///  Find Destination Heatmap
+        //////////////////////////////
+        var travelTimeLayer = L.TileLayer.heatMap({
+            // radius could be absolute or relative
+            // absolute: radius in meters, relative: radius in pixels
+            radius: { value: 20, absolute: true },
+            //radius: { value: 20, absolute: false },
+            opacity: 0.8,
+            gradient: {
+                0.45: "rgb(0,0,255)",
+                0.55: "rgb(0,255,255)",
+                0.65: "rgb(0,255,0)",
+                0.95: "yellow",
+                1.0: "rgb(255,0,0)"
+            }
+        });
+
+        // heatmap data set
+        travelTimeLayer.setData_X_Y(travelTime);
+
+
+
+        ////////////////////////////
+        /// Base Map Layer setting.
+        ////////////////////////////
 
         var map = new L.Map('map', {
             center: new L.LatLng(48.68, 6.17),
             zoom: 13,
-            layers: [colorFullLayer, heatmapLayer, animationLayer]
+            layers: [cloudmadeLayer, heatmapLayer, animationLayer]
         });
 
         // make accessible for debugging
         heatmapdata_listshow = heatmapdata_list;
 
+
+        ////////////////////////////////////
+        ///  put variable outside for debug
+        ////////////////////////////////////
         heatmap_layer = heatmapLayer;
         animation_layer = animationLayer;
 
-        loadData(map, animationLayer, 4);
 
+        //////////////////////////////////
+        /// Bus icon setting
+        /////////////////////////////////
         var bikeIcon = L.icon({
             iconUrl: 'marker-bike-green-shadowed.png',
             iconSize: [25, 39],
@@ -324,6 +354,9 @@ heatmapData.mapView = Backbone.View.extend({
             shadowUrl: null
         });
 
+        ///////////////////////////////
+        /// Base Layer Setting
+        //////////////////////////////
         var baseMaps = {
             'Cloudmade Layer': cloudmadeLayer,
             'Xtile: ColorFull': colorFullLayer,
@@ -335,11 +368,19 @@ heatmapData.mapView = Backbone.View.extend({
         };
 
 
-        //add control part:
+        ////////////////////////////
+        /// Overlayer Setting
+        ///////////////////////////
         var overlayMaps = {
             'Heatmap': heatmapLayer,
             'Animation': animationLayer
+ //           'Travel Time': travelTimeLayer
         };
+
+
+        ////////////////////////////
+        /// Control Layer Setting
+        ////////////////////////////
         var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: true });
         controls.addTo(map);
     }
