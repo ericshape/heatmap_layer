@@ -1,4 +1,4 @@
-[{
+var getRoutes = [{
 		"Geography" : {
 			"CentralPoint" : null,
 			"Geographies" : [{

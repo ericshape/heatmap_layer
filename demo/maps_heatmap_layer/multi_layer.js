@@ -29,7 +29,7 @@
 ///  Load XML file heleper function
 ////////////////////////////////
 // If the xml is null, return the error information.
-checkXMLDocObj = function (xmlFile) {
+var checkXMLDocObj = function (xmlFile) {
     var xmlDoc = loadXMLDoc(xmlFile);    https://www.macupdate.com/
     if (xmlDoc == null) {
         alert('There is error to get xml file!');
@@ -40,7 +40,47 @@ checkXMLDocObj = function (xmlFile) {
 
 
 ////////////////////////////////////
-//Animation Layer definition
+///  Bus Stops Data Loading
+///////////////////////////////////
+
+var loadBusStopsData = function(dataset, layer){
+
+
+    var self = this;
+    var marker = new Array();
+
+    dataset.forEach(function(d) {
+        marker.push(new L.marker([d.Y, d.X], {title: d.Metadata[0].Value}));
+    });
+
+    L.layerGroup(marker)
+        .addTo(layer);
+
+//    $.each(getStops, function (arrayID, value) {
+//        //number of entity in the JSON file.
+//        i++;
+//
+//        var time_string = value.Date.replace(/\(|\)/g, "");
+//
+//        cur_timestamp = time_string.substr(5, 13);
+//
+//        if (cur_timestamp == pre_timestamp) {
+//            LanLat_Array.push({ "lat": value.Y, "lon": value.X });
+//        }
+//        else {
+//            if (LanLat_Array != null) {
+//                timestamp_hashtable[pre_timestamp] = LanLat_Array;
+//            }
+//            pre_timestamp = cur_timestamp;
+//            LanLat_Array = new Array();
+//        }
+//
+//    });
+
+};
+
+////////////////////////////////////
+// Bus Animation Layer definition
 ///////////////////////////////////
 var timestamp_hashtable = new Array();
 
@@ -270,6 +310,15 @@ heatmapData.mapView = Backbone.View.extend({
             }
         );
 
+        ////////////////////////////
+        ////  Bus Stops Display
+        ////////////////////////////
+
+        var busStopsLayer = L.layerGroup();
+
+        loadBusStopsData(getStops, busStopsLayer);
+
+
         /////////////////////////////////
         /// Bus Move Animation Layer
         ////////////////////////////////
@@ -298,6 +347,9 @@ heatmapData.mapView = Backbone.View.extend({
 
         // heatmap data set
         heatmapLayer.setData_X_Y(getEveryStationLoadData);
+
+
+
 
 
         ///////////////////////////////
@@ -346,6 +398,8 @@ heatmapData.mapView = Backbone.View.extend({
         findDestinationLayer.setData_X_Y(findDestination);
 
 
+
+
         ////////////////////////////
         /// Base Map Layer setting.
         ////////////////////////////
@@ -365,6 +419,7 @@ heatmapData.mapView = Backbone.View.extend({
         ////////////////////////////////////
         heatmap_layer = heatmapLayer;
         animation_layer = animationLayer;
+        busstops_layer = busStopsLayer;
 
 
         //////////////////////////////////
@@ -398,7 +453,8 @@ heatmapData.mapView = Backbone.View.extend({
             'Heatmap': heatmapLayer,
             'Animation': animationLayer,
             'Travel Time': travelTimeLayer,
-            'Find Destination': findDestinationLayer
+            'Find Destination': findDestinationLayer,
+            'Bus Stops': busStopsLayer
         };
 
 
