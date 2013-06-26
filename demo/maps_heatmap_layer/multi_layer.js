@@ -45,8 +45,6 @@ var checkXMLDocObj = function (xmlFile) {
 
 var loadBusStopsData = function(dataset, layer){
 
-
-    var self = this;
     var marker = new Array();
 
     dataset.forEach(function(d) {
@@ -56,28 +54,35 @@ var loadBusStopsData = function(dataset, layer){
     L.layerGroup(marker)
         .addTo(layer);
 
-//    $.each(getStops, function (arrayID, value) {
-//        //number of entity in the JSON file.
-//        i++;
-//
-//        var time_string = value.Date.replace(/\(|\)/g, "");
-//
-//        cur_timestamp = time_string.substr(5, 13);
-//
-//        if (cur_timestamp == pre_timestamp) {
-//            LanLat_Array.push({ "lat": value.Y, "lon": value.X });
-//        }
-//        else {
-//            if (LanLat_Array != null) {
-//                timestamp_hashtable[pre_timestamp] = LanLat_Array;
-//            }
-//            pre_timestamp = cur_timestamp;
-//            LanLat_Array = new Array();
-//        }
-//
-//    });
+};
+
+////////////////////////////////////
+///  Bus Stops Data Loading
+///////////////////////////////////
+
+var loadBusRoutesData = function(dataset, layer){
+
+    var marker = new Array();
+
+    console.log(dataset);
+
+    var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5));
+
+    dataset.forEach(function(d) {
+
+        busRoutePath.addLatLng([d.Y, d.X]);
+
+        console.log(d.Y + ' ' + d.X);
+    });
+
+    marker.push(busRoutePath);
+
+    L.layerGroup(marker)
+        .addTo(layer);
 
 };
+
+
 
 ////////////////////////////////////
 // Bus Animation Layer definition
@@ -311,6 +316,16 @@ heatmapData.mapView = Backbone.View.extend({
         );
 
         ////////////////////////////
+        ////  Bus Routes Display
+        ////////////////////////////
+
+        var busRoutesLayer = L.layerGroup();
+
+        loadBusRoutesData(getRoutes[0].Geography.Geographies[4].Locations, busRoutesLayer);
+
+
+
+        ////////////////////////////
         ////  Bus Stops Display
         ////////////////////////////
 
@@ -407,7 +422,7 @@ heatmapData.mapView = Backbone.View.extend({
         var map = new L.Map('map', {
             center: new L.LatLng(48.68, 6.17),
             zoom: 13,
-            layers: [cloudmadeLayer, heatmapLayer, animationLayer]
+            layers: [cloudmadeLayer]
         });
 
         // make accessible for debugging
@@ -420,6 +435,7 @@ heatmapData.mapView = Backbone.View.extend({
         heatmap_layer = heatmapLayer;
         animation_layer = animationLayer;
         busstops_layer = busStopsLayer;
+        busroute_layer = busRoutesLayer;
 
 
         //////////////////////////////////
@@ -454,7 +470,8 @@ heatmapData.mapView = Backbone.View.extend({
             'Animation': animationLayer,
             'Travel Time': travelTimeLayer,
             'Find Destination': findDestinationLayer,
-            'Bus Stops': busStopsLayer
+            'Bus Stops': busStopsLayer,
+            'Bus Routes': busRoutesLayer
         };
 
 
