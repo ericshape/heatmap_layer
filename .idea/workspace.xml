@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087a8ce9-a3c1-454b-b3d5-df31fb677071" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372249681760" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372328570517" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372256053302" ignored="false" />
     <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372248082454" ignored="false" />
@@ -22,7 +20,7 @@
     <file path="/Nancy_findDestinations.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371820961171" ignored="false" />
     <file path="/Nancy_getStops.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372150809029" ignored="false" />
     <file path="/Nancy_getRoutes.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372152924012" ignored="false" />
-    <file path="/Data_parser.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372328399316" ignored="false" />
+    <file path="/Data_parser.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372338008855" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +75,7 @@
       <file leaf-file-name="Data_parser.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="55" selection-start="371" selection-end="371" vertical-scroll-proportion="0.25137615">
+            <state line="80" column="67" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.40733945">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -410,7 +408,11 @@
       <created>1372249691140</created>
       <updated>1372249691140</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="almost complete bus route layer">
+      <created>1372328574798</created>
+      <updated>1372328574798</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -441,7 +443,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24982357" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19266056" sideWeight="0.71446383" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19266056" sideWeight="0.71446383" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28553617" sideWeight="0.49964714" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16513762" sideWeight="0.29426435" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28553617" sideWeight="0.50035286" order="1" side_tool="true" content_ui="tabs" />
@@ -498,7 +500,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add bus route layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost complete bus route layer" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -536,6 +538,7 @@
     <MESSAGE value="add travel time heatmap &#10;add find destination heatmap" />
     <MESSAGE value="Add Bus Stop Layer" />
     <MESSAGE value="Add bus route layer" />
+    <MESSAGE value="almost complete bus route layer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,7 +642,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="55" selection-start="371" selection-end="371" vertical-scroll-proportion="0.25137615">
+        <state line="80" column="67" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.40733945">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
