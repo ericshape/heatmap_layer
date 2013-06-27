@@ -56,32 +56,6 @@ var loadBusStopsData = function(dataset, layer){
 
 };
 
-////////////////////////////////////
-///  Bus Stops Data Loading
-///////////////////////////////////
-
-var loadBusRoutesData = function(dataset, layer){
-
-    var marker = new Array();
-
-    console.log(dataset);
-
-    var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5));
-
-    dataset.forEach(function(d) {
-
-        busRoutePath.addLatLng([d.Y, d.X]);
-
-        console.log(d.Y + ' ' + d.X);
-    });
-
-    marker.push(busRoutePath);
-
-    L.layerGroup(marker)
-        .addTo(layer);
-
-};
-
 
 
 ////////////////////////////////////
@@ -321,7 +295,7 @@ heatmapData.mapView = Backbone.View.extend({
 
         var busRoutesLayer = L.layerGroup();
 
-        loadBusRoutesData(getRoutes[0].Geography.Geographies[4].Locations, busRoutesLayer);
+        loadBusRoutesData(getRoutes, busRoutesLayer);
 
 
 
