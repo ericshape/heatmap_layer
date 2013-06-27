@@ -76,7 +76,11 @@ var loadBusRoutesData = function(dataset, layer){
 
             var busLineRoute = busLine[j].Locations;
 
-            var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5), {color: busRouteColorScheme[i]});
+            var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5),
+                {color: busRouteColorScheme[i],
+                    title: busToolTipText,
+                    opacity: 1.0,
+                    weight: 2});
 
             busLineRoute.forEach(function(d) {
 

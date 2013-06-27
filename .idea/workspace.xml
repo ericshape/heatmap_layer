@@ -7,7 +7,7 @@
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372328570517" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372339249914" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372256053302" ignored="false" />
     <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372248082454" ignored="false" />
@@ -20,7 +20,7 @@
     <file path="/Nancy_findDestinations.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371820961171" ignored="false" />
     <file path="/Nancy_getStops.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372150809029" ignored="false" />
     <file path="/Nancy_getRoutes.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372152924012" ignored="false" />
-    <file path="/Data_parser.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372338008855" ignored="false" />
+    <file path="/Data_parser.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372340499074" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
       <file leaf-file-name="Data_parser.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="67" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.40733945">
+            <state line="79" column="51" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.56330276">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -412,7 +412,11 @@
       <created>1372328574798</created>
       <updated>1372328574798</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add color to bus route">
+      <created>1372339254126</created>
+      <updated>1372339254126</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -500,7 +504,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost complete bus route layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add color to bus route" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -514,7 +518,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="first try on webstorm" />
     <MESSAGE value="init" />
     <MESSAGE value="delete useless dirs and folders" />
     <MESSAGE value="1. merge the heatmap and animation layer &#10;2. split the js file and the http file" />
@@ -539,6 +542,7 @@
     <MESSAGE value="Add Bus Stop Layer" />
     <MESSAGE value="Add bus route layer" />
     <MESSAGE value="almost complete bus route layer" />
+    <MESSAGE value="add color to bus route" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -642,7 +646,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="67" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.40733945">
+        <state line="79" column="51" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.56330276">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
