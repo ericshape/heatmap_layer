@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087a8ce9-a3c1-454b-b3d5-df31fb677071" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/leaflet.markercluster-src.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372339249914" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372340544674" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
-    <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372256053302" ignored="false" />
-    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372248082454" ignored="false" />
+    <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372420247803" ignored="false" />
+    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1372420582830" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044136462" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088904378" ignored="false" />
     <file path="/Nancy_getEveryStationLoad.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371733230332" ignored="false" />
@@ -43,16 +46,16 @@
       <file leaf-file-name="leaflet.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="54" selection-start="43789" selection-end="43789" vertical-scroll-proportion="-7.0384617">
+            <state line="35" column="84" selection-start="1340" selection-end="1340" vertical-scroll-proportion="-9.653846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multi_layer.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="300" column="69" selection-start="8992" selection-end="8992" vertical-scroll-proportion="0.0">
+            <state line="52" column="20" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.7349624">
               <folding />
             </state>
           </provider>
@@ -72,10 +75,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data_parser.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Data_parser.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="51" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.56330276">
+            <state line="59" column="70" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -101,7 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/GetVehicleLoad_2012-03-01_tram_120mn.js" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/GetVehicleLoad_2012-03-01_tram_120mn.js" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/config_example.js" />
         <option value="$PROJECT_DIR$/src/require.js" />
@@ -114,9 +116,10 @@
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_findDestinations.json" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_getStops.js" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_getRoutes.js" />
+        <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" />
+        <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/Nancy_for_json_samples.json" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html" />
         <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
-        <option value="$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js" />
       </list>
     </option>
   </component>
@@ -178,6 +181,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heatmap_layer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heatmap_layer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -204,8 +221,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/demo/maps_heatmap_layer" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/demo/maps_heatmap_layer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/demo/maps_heatmap_layer" />
@@ -416,7 +433,11 @@
       <created>1372339254126</created>
       <updated>1372339254126</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add color to bus route">
+      <created>1372340549850</created>
+      <updated>1372340549850</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -550,11 +571,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Cities.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="0" selection-start="11399" selection-end="11751" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/GetVehicleLoad_2012-03-01_tram_120mn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" />
@@ -568,11 +584,6 @@
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_getEveryStationLoad.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="17" selection-start="121" selection-end="121" vertical-scroll-proportion="0.24040404" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Nancy_for_json_samples.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="48" selection-start="3978" selection-end="3978" vertical-scroll-proportion="0.52750355" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_findDestinations.js">
@@ -618,20 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="54" selection-start="43789" selection-end="43789" vertical-scroll-proportion="-7.0384617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="69" selection-start="8992" selection-end="8992" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/Nancy_getRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="72" selection-end="83" vertical-scroll-proportion="-2.4615386">
@@ -644,12 +641,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Nancy_for_json_samples.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="68" selection-start="469" selection-end="469" vertical-scroll-proportion="-3.3932807">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="51" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.56330276">
+        <state line="59" column="70" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/leaflet.markercluster-src.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="969" column="2" selection-start="27477" selection-end="27477" vertical-scroll-proportion="0.33270678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/leaflet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="84" selection-start="1340" selection-end="1340" vertical-scroll-proportion="-9.653846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="20" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.7349624">
+          <folding />
         </state>
       </provider>
     </entry>

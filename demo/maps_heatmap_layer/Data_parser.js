@@ -59,8 +59,6 @@ var loadBusRoutesData = function(dataset, layer){
 
 
     var marker = new Array();
-
-
     var objects = [];
 
     for (var i in dataset) {
@@ -90,6 +88,7 @@ var loadBusRoutesData = function(dataset, layer){
             });
 
             marker.push(busRoutePath);
+
 
         }
     }

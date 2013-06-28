@@ -45,15 +45,17 @@ var checkXMLDocObj = function (xmlFile) {
 
 var loadBusStopsData = function(dataset, layer){
 
-    var marker = new Array();
+//    var marker = new Array();
 
     dataset.forEach(function(d) {
-        marker.push(new L.marker([d.Y, d.X], {title: d.Metadata[0].Value}));
+//        marker.push(new L.marker([d.Y, d.X], {title: d.Metadata[0].Value}));
+
+        var marker = new L.marker([d.Y, d.X], {title: d.Metadata[0].Value});
+        layer.addLayer(marker);
     });
 
-    L.layerGroup(marker)
-        .addTo(layer);
-
+//    L.layerGroup(marker)
+//        .addTo(layer);
 };
 
 
@@ -303,7 +305,7 @@ heatmapData.mapView = Backbone.View.extend({
         ////  Bus Stops Display
         ////////////////////////////
 
-        var busStopsLayer = L.layerGroup();
+        var busStopsLayer = L.markerClusterGroup();;
 
         loadBusStopsData(getStops, busStopsLayer);
 
