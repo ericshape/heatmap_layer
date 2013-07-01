@@ -305,7 +305,7 @@ heatmapData.mapView = Backbone.View.extend({
         ////  Bus Stops Display
         ////////////////////////////
 
-        var busStopsLayer = L.markerClusterGroup();;
+        var busStopsLayer = L.markerClusterGroup({maxClusterRadius: 40});;
 
         loadBusStopsData(getStops, busStopsLayer);
 
