@@ -30,7 +30,7 @@
 ////////////////////////////////
 // If the xml is null, return the error information.
 var checkXMLDocObj = function (xmlFile) {
-    var xmlDoc = loadXMLDoc(xmlFile);    https://www.macupdate.com/
+    var xmlDoc = loadXMLDoc(xmlFile);
     if (xmlDoc == null) {
         alert('There is error to get xml file!');
     }

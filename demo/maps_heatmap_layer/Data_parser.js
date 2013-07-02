@@ -79,6 +79,7 @@ var loadBusRoutesData = function(dataset, layer){
                     title: busToolTipText,
                     opacity: 1.0,
                     weight: 2});
+            busRoutePath.bindPopup(busToolTipText);
 
             busLineRoute.forEach(function(d) {
 
