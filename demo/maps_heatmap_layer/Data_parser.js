@@ -65,6 +65,8 @@ var loadBusRoutesData = function(dataset, layer){
         var busID = dataset[i].Id;
         var busToolTipText = dataset[i].Metadata[0].Value;
 
+        console.log(i);
+
 //        console.log(busID);
 
         var busLine = dataset[i].Geography.Geographies;
@@ -75,10 +77,10 @@ var loadBusRoutesData = function(dataset, layer){
             var busLineRoute = busLine[j].Locations;
 
             var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5),
-                {color: busRouteColorScheme[i],
+                {color: busRouteColorScheme[i-1],
                     title: busToolTipText,
                     opacity: 1.0,
-                    weight: 2});
+                    weight: 5});
             busRoutePath.bindPopup(busToolTipText);
 
             busLineRoute.forEach(function(d) {
