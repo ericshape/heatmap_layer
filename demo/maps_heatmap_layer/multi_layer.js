@@ -36,8 +36,8 @@ $(document).ready(function () {
         max: 1,
         step: 0.1,
         slide: function (event, ui) {
-            mapquest.setOpacity(ui.value);
-            nysdop.setOpacity(1 - ui.value);
+//            mapquest.setOpacity(ui.value);
+//            nysdop.setOpacity(1 - ui.value);
         }
     });
     $("#zoomslider").slider({
@@ -48,7 +48,7 @@ $(document).ready(function () {
         max: 20,
         step: 1,
         slide: function (event, ui) {
-            map.setZoom(ui.value);
+//           map.setZoom(ui.value);
         }
     });
     $(function () {
