@@ -7,6 +7,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="../../src/jquery.js"></script>
 
+        <!--ncluding the css style file and jQuery UI libs-->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+        <!--the css style file of the slider of the controller-->
+        <style type="text/css">
+            #basemapslidercontainer {
+                position: absolute;
+                top: 10px;
+                right: 300px;
+                z-index: 1000;
+            }
+            #zoomslidercontainer {
+                position: absolute;
+                top: 50px;
+                right: 10px;
+                z-index: 1000;
+            }
+            #layersopener {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index: 1000;
+            }
+        </style>
+
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
         <link rel="stylesheet" href="../../src/MarkerCluster.css" />
         <link rel="stylesheet" href="../../src/MarkerCluster.Default.css" />
@@ -63,6 +90,22 @@
 	</head>
 	<body>
 		<div id="map"></div>
+
+        <div id="basemapslidercontainer">
+            <center><div id="basemapslidertext" style="font-size: 12px; font-weight: bold; background: white; opacity:0.6; padding: 2px"> Animation Controller </div></center>
+            <div id="basemapslider" style="font-size:62.5%; margin: 10px; width: 600px" onmousedown="map.dragging.disable();">
+            </div>
+        </div>
+
+        <div id="zoomslidercontainer">
+            <div id="zoomslider" style="font-size:62.5%; margin: 10px; height: 125px" onmousedown="map.dragging.disable();">
+            </div>
+        </div>
+
+        <!--<div class="layers" style="font-size: 10px;">-->
+            <!--<button id="layersopener">Map Layers</button>-->
+        <!--</div>-->
+        <!--</div>-->
 
 
 

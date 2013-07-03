@@ -24,6 +24,59 @@
 
 
 
+/////////////////////////////////
+///  slider rendering
+////////////////////////////////
+
+$(document).ready(function () {
+    $("#basemapslider").slider({
+        animate: true,
+        value: 1,
+        min: 0,
+        max: 1,
+        step: 0.1,
+        slide: function (event, ui) {
+            mapquest.setOpacity(ui.value);
+            nysdop.setOpacity(1 - ui.value);
+        }
+    });
+    $("#zoomslider").slider({
+        animate: true,
+        orientation: "vertical",
+        value: 12,
+        min: 0,
+        max: 20,
+        step: 1,
+        slide: function (event, ui) {
+            map.setZoom(ui.value);
+        }
+    });
+    $(function () {
+        $("button", ".layers").button();
+        $("button", ".layers").click(function () {
+            $("#layersdialog").dialog("open");
+            return false;
+        });
+    });
+    $.fx.speeds._default = 1000;
+    $(function () {
+        $("#layersdialog").dialog({
+            autoOpen: false,
+            //position: [110, 110],
+            title: "<span style='font-size: 12px'>Map Layers</span>",
+            show: "fold",
+            //hide: "fold",
+            open: function(){
+                $("#accordion").accordion({
+                    autoHeight: false,
+                    collapsible: true
+                });
+            }
+        });
+    });
+});
+
+
 
 /////////////////////////////////
 ///  Load XML file heleper function
