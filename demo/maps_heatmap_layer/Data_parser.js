@@ -79,7 +79,7 @@ var loadBusRoutesData = function(dataset, layer){
             var busRoutePath = new L.polyline(new L.LatLng(50.5, 30.5),
                 {color: busRouteColorScheme[i],
                     title: busToolTipText,
-                    opacity: 1.0,
+                    opacity: 0.9,
                     weight: 5});
             busRoutePath.bindPopup(busToolTipText);
 

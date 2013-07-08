@@ -137,6 +137,31 @@
          this.redraw();
      },
 
+     /**
+      * Inserts Min data into quadtree and redraws heatmap canvas by XRCE
+      */
+     setData_X_Y_Min: function(dataset) {
+         var self = this;
+         var latLngs = [];
+         this._maxValue = 65536;
+         dataset.forEach(function(d) {
+             latLngs.push(new L.LatLng(d.Key.Y, d.Key.X));
+             self._maxValue = Math.min(self._maxValue, d.Value);
+         });
+         this._bounds = new L.LatLngBounds(latLngs);
+
+         this._quad = new QuadTree(this._boundsToQuery(this._bounds), false, 6, 6);
+
+         dataset.forEach(function(d) {
+             self._quad.insert({
+                 x: d.Key.X,
+                 y: d.Key.Y,
+                 value: d.Value
+             });
+         });
+         this.redraw();
+     },
+
     /**
      * Transforms coordinates to tile space
      */

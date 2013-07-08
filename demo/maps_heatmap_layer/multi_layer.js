@@ -48,7 +48,7 @@ $(document).ready(function () {
         max: 20,
         step: 1,
         slide: function (event, ui) {
-//           map.setZoom(ui.value);
+            heatmapData.mapView.draw()
         }
     });
     $(function () {
@@ -89,7 +89,16 @@ var checkXMLDocObj = function (xmlFile) {
     }
 
     return xmlDoc;
-}
+};
+
+////////////////////////////////////
+///  Bus Stops Data Loading
+///////////////////////////////////
+
+var busController = function(){
+
+};
+
 
 
 ////////////////////////////////////
@@ -111,6 +120,63 @@ var loadBusStopsData = function(dataset, layer){
 //        .addTo(layer);
 };
 
+////////////////////////////////////
+///  Draw Bus Moving
+///////////////////////////////////
+
+
+var drawBus = function (animationlayer, timestamp_id, timestamp_number, marker) {
+
+    items = timestamp_hashtable[timestamp_number[timestamp_id]];
+
+    //                   console.log(items);
+
+    // creat the animation layer
+
+
+    //pushing items into array each by each and then add markers
+    for (var j = 0; j < items.length; j++) {
+        var LamMarker = new L.marker([items[j].lat, items[j].lon]);
+        marker.push(LamMarker);
+
+    }
+
+
+
+    L.layerGroup(marker)
+        .addTo(animiationlayer);
+
+
+    setTimeout(function () {
+
+        //clear layers
+        animiationLayer.clearLayers();
+
+        //clear marker
+        marker.length = 0;
+
+        if (timestamp_number_id < timestamp_number.length) {
+            timestamp_number_id++;
+            drawBus(timestamp_number_id);
+        }
+    }, 100);
+
+//    settime = function () {
+//
+//        //clear layers
+//        animiationLayer.clearLayers();
+//
+//        //clear marker
+//        marker.length = 0;
+//
+//        if (timestamp_number_id < timestamp_number.length) {
+//            timestamp_number_id++;
+//            drawBus(timestamp_number_id);
+//        }
+//    };
+
+};
+
 
 
 ////////////////////////////////////
@@ -118,7 +184,9 @@ var loadBusStopsData = function(dataset, layer){
 ///////////////////////////////////
 var timestamp_hashtable = new Array();
 
-var loadData = function (map, animiationLayer, id) {
+var loadData = function (animiationLayer, id) {
+
+    var animationlayer = animiationLayer;
 
     var routeLines = [];
 
@@ -177,51 +245,12 @@ var loadData = function (map, animiationLayer, id) {
     for (k in timestamp_hashtable) {
 
         timestamp_number.push(k);
-    }
-
-
-    var drawBus;
-    drawBus = function (timestamp_id) {
-
-        items = timestamp_hashtable[timestamp_number[timestamp_id]];
-
-        //                   console.log(items);
-
-        // creat the animation layer
-
-
-        //pushing items into array each by each and then add markers
-        for (var j = 0; j < items.length; j++) {
-            var LamMarker = new L.marker([items[j].lat, items[j].lon]);
-            marker.push(LamMarker);
-
-        }
-
-
-
-        L.layerGroup(marker)
-            .addTo(animiationLayer);
-
-
-        setTimeout(function () {
-
-            //clear layers
-            animiationLayer.clearLayers();
-
-            //clear marker
-            marker.length = 0;
-
-            if (timestamp_number_id < timestamp_number.length) {
-                timestamp_number_id++;
-                drawBus(timestamp_number_id);
-            }
-        }, 100);
-
     };
 
-    drawBus(timestamp_number_id);
+//    drawBus(animationlayer, timestamp_number_id, timestamp_number, marker);
 
 };
+
 
 
 // Define the heatmpaData
@@ -368,7 +397,7 @@ heatmapData.mapView = Backbone.View.extend({
         ////////////////////////////////
         var animationLayer =  L.layerGroup();
 
-        loadData(map, animationLayer, 4);
+        loadData(animationLayer, 4);
 
 
         /////////////////////////////////
@@ -377,15 +406,17 @@ heatmapData.mapView = Backbone.View.extend({
         var heatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 100, absolute: true },
+            radius: { value: 10, absolute: false },
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0.45: "rgb(0,0,255)",
-                0.55: "rgb(0,255,255)",
-                0.65: "rgb(0,255,0)",
-                0.95: "yellow",
-                1.0: "rgb(255,0,0)"
+                0: "rgba(255, 255, 255, 0)",
+                0.1: "rgba(53, 52, 61, 180)",
+                0.2: "rgba(0, 234, 242, 220)",
+                0.4: "rgba(0, 180, 65, 220)",
+                0.6: "rgba(220, 252, 20, 220)",
+                0.8: "rgba(255, 100, 0, 220)",
+                1: "rgba(255, 1, 1, 220)"
             }
         });
 
@@ -403,20 +434,22 @@ heatmapData.mapView = Backbone.View.extend({
         var travelTimeLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 100, absolute: true },
+            radius: { value: 20, absolute: false },
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0.45: "rgb(0,0,255)",
-                0.55: "rgb(0,255,255)",
-                0.65: "rgb(0,255,0)",
-                0.95: "yellow",
-                1.0: "rgb(255,0,0)"
+                0.01: "rgba(255, 255, 255, 0)",
+                0.1: "rgba(53, 52, 61, 180)",
+                0.2: "rgba(0, 234, 242, 220)",
+                0.4: "rgba(0, 180, 65, 220)",
+                0.6: "rgba(220, 252, 20, 220)",
+                0.8: "rgba(255, 100, 0, 220)",
+                1: "rgba(255, 1, 1, 220)"
             }
         });
 
         // heatmap data set
-        travelTimeLayer.setData_X_Y(travelTime);
+        travelTimeLayer.setData_X_Y_Min(travelTime);
 
 
         ///////////////////////////////
@@ -426,15 +459,17 @@ heatmapData.mapView = Backbone.View.extend({
         var findDestinationLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 100, absolute: true },
+            radius: { value: 20, absolute: false },
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0.45: "rgb(0,0,255)",
-                0.55: "rgb(0,255,255)",
-                0.65: "rgb(0,255,0)",
-                0.95: "yellow",
-                1.0: "rgb(255,0,0)"
+                0: "rgba(255, 255, 255, 0)",
+                0.1: "rgba(53, 52, 61, 180)",
+                0.2: "rgba(0, 234, 242, 220)",
+                0.4: "rgba(0, 180, 65, 220)",
+                0.6: "rgba(220, 252, 20, 220)",
+                0.8: "rgba(255, 100, 0, 220)",
+                1: "rgba(255, 1, 1, 220)"
             }
         });
 
@@ -521,28 +556,3 @@ var heatmap_mapView = new heatmapData.mapView();
 
 
 
-
-//    loadData(4);
-//
-//    var bikeIcon = L.icon({
-//        iconUrl: 'marker-bike-green-shadowed.png',
-//        iconSize: [25, 39],
-//        iconAnchor: [12, 39],
-//        shadowUrl: null
-//    });
-
-//    var config = {
-//        tileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
-//        //tileUrl : 'http://{s}.tiles.mapbox.com/v3/openplans.map-g4j0dszr/{z}/{x}/{y}.png',
-//        overlayTileUrl : 'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png',
-////      overlayTileUrl : 'http://{s}.tiles.mapbox.com/v3/intertwine.nyc_bike_overlay/{z}/{x}/{y}.png',
-//        tileAttrib : 'Routing powered by <a href="http://opentripplanner.org/">OpenTripPlanner</a>, Map tiles &copy; Development Seed and OpenStreetMap ',
-//        initLatLng : new L.LatLng(48.7015,6.2112), // Nancy
-//        initZoom : 13
-//    };
-//
-//    var map = L.map('map', {minZoom: config.minZoom, maxZoom: config.maxZoom});
-//
-//    map.addLayer(new L.TileLayer(config.tileUrl, {attribution: config.tileAttrib}));
-//    map.addLayer(new L.TileLayer(config.overlayTileUrl));
-//    map.setView(config.initLatLng, config.initZoom);
