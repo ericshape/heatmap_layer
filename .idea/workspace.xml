@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="087a8ce9-a3c1-454b-b3d5-df31fb677071" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" afterPath="$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373461343588" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373461452483" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373453294288" ignored="false" />
-    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373460938955" ignored="false" />
+    <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373462923923" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371044136462" ignored="false" />
     <file path="/GetVehicleLoad_2012-03-01_tram_120mn.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371088904378" ignored="false" />
     <file path="/Nancy_getEveryStationLoad.json" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1371733230332" ignored="false" />
@@ -66,7 +67,7 @@
       <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="319" column="35" selection-start="8322" selection-end="8322" vertical-scroll-proportion="0.8559322">
+            <state line="562" column="39" selection-start="17501" selection-end="17501" vertical-scroll-proportion="0.33728814">
               <folding />
             </state>
           </provider>
@@ -75,12 +76,8 @@
       <file leaf-file-name="cities.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/cities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="70" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#5704#7251#0" expanded="false" />
-                <element signature="e#7259#9420#0" expanded="false" />
-                <element signature="e#9428#11626#0" expanded="false" />
-              </folding>
+            <state line="50" column="0" selection-start="1597" selection-end="1773" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -564,7 +561,11 @@
       <created>1373461348205</created>
       <updated>1373461348205</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="add city selector">
+      <created>1373461455255</created>
+      <updated>1373461455255</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -778,30 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/leaflet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1096" column="0" selection-start="26349" selection-end="26349" vertical-scroll-proportion="-0.7083333">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/cities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="70" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#5704#7251#0" expanded="false" />
-            <element signature="e#7259#9420#0" expanded="false" />
-            <element signature="e#9428#11626#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,9 +795,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/Data_parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/JSON_for_Javascript/cities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1597" selection-end="1773" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="319" column="35" selection-start="8322" selection-end="8322" vertical-scroll-proportion="0.8559322">
+        <state line="562" column="39" selection-start="17501" selection-end="17501" vertical-scroll-proportion="0.33728814">
           <folding />
         </state>
       </provider>

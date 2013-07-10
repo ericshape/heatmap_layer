@@ -402,6 +402,20 @@ heatmapData.mapView = Backbone.View.extend({
             }
         );
 
+        var XRCELayer = L.tileLayer(
+            "http://dolent.grenoble.xrce.xerox.com/GeoServer/tiles/{z}/{x}/{y}.png", {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
+        var openXeroxLayer = L.tileLayer(
+            "http://services.open.xerox.com/WebApp.svc/OpenStreetMapTiles/{z}/{x}/{y}.png", {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+                maxZoom: 18
+            }
+        );
+
         ////////////////////////////
         ////  Bus Routes Display
         ////////////////////////////
@@ -551,7 +565,9 @@ heatmapData.mapView = Backbone.View.extend({
             'Xtile: BlackOnWhite': blackOnWhiteLayer,
             'Xtile: DayEagle': dayEagleLayer,
             'Xtile: NightHawk': nightHawkLayer,
-            'Xtile: BlackOnBlack': blackOnBlackLayer
+            'Xtile: BlackOnBlack': blackOnBlackLayer,
+            'XRCE Tile': XRCELayer,
+            'Open Xerox Tile': openXeroxLayer
         };
 
 
