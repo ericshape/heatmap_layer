@@ -1,4 +1,4 @@
-﻿var citiesData = {
+﻿var citiesSelectData = {
   "ArrayOfCity": {
     "City": [
       {

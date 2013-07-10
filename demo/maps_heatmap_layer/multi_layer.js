@@ -62,16 +62,8 @@ $(document).ready(function () {
     $(function () {
         $("#layersdialog").dialog({
             autoOpen: false,
-            //position: [110, 110],
-            title: "<span style='font-size: 12px'>Map Layers</span>",
-            show: "fold",
-            //hide: "fold",
-            open: function(){
-                $("#accordion").accordion({
-                    autoHeight: false,
-                    collapsible: true
-                });
-            }
+            title: "Cities",
+            show: "fold"
         });
     });
 });
@@ -294,6 +286,38 @@ var heatmapDataList = Backbone.Collection.extend({
 
 var heatmapdata_list = new heatmapDataList();
 
+var map;
+
+////////////////////////////////////
+/// setMapView
+////////////////////////////////////
+var setMapView = function(id){
+
+    console.log(id);
+
+    // iteration the cities.json and find the matached ID
+    for (var k in citiesSelectData.ArrayOfCity.City){
+        // find the matched id
+        var currentCityData =  citiesSelectData.ArrayOfCity.City[k];
+        if (id == currentCityData.Id){
+
+            var cityCenterLat = (Math.floor(currentCityData.MinBound.Locations.Location.Y) +
+                                Math.floor(currentCityData.MaxBound.Locations.Location.Y))/2.0;
+            var cityCenterLng = (Math.floor(currentCityData.MinBound.Locations.Location.X) +
+                                Math.floor(currentCityData.MaxBound.Locations.Location.X))/2.0;
+
+            var cityCenterLatLng = new L.LatLng(cityCenterLat, cityCenterLng);
+
+            var cityMaxZoomLevel = currentCityData.MaxZoomLevels;
+
+            map.setView( cityCenterLatLng, cityMaxZoomLevel, 13);
+//            map.setMaxBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
+//                                            new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
+
+        }
+    }
+};
+
 //////////////////////////////
 // heatmapData View
 /////////////////////////////
@@ -483,7 +507,7 @@ heatmapData.mapView = Backbone.View.extend({
         /// Base Map Layer setting.
         ////////////////////////////
 
-        var map = new L.Map('map', {
+        map = new L.Map('map', {
             center: new L.LatLng(48.68, 6.17),
             zoom: 13,
             layers: [cloudmadeLayer]

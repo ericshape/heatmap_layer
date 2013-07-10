@@ -26,9 +26,9 @@
                 right: 10px;
                 z-index: 1000;
             }
-            #layersopener {
+            #citySelector {
                 position: absolute;
-                top: 10px;
+                bottom: 10px;
                 left: 10px;
                 z-index: 1000;
             }
@@ -74,6 +74,7 @@
         <script type="text/javascript" src="JSON_for_Javascript/Nancy_findDestinations.js"></script>
         <script type="text/javascript" src="JSON_for_Javascript/Nancy_getStops.js"></script>
         <script type="text/javascript" src="JSON_for_Javascript/Nancy_getRoutes.js"></script>
+        <script type="text/javascript" src="JSON_for_Javascript/cities.js"></script>
 
         <script type="text/javascript" src="Data_parser.js"></script>
 
@@ -102,10 +103,18 @@
             </div>
         </div>
 
-        <!--<div class="layers" style="font-size: 10px;">-->
-            <!--<button id="layersopener">Map Layers</button>-->
-        <!--</div>-->
-        <!--</div>-->
+        <div class="layers" style="font-size: 10px;">
+            <button id="citySelector">City Selector</button>
+        </div>
+        </div>
+
+        <div id="layersdialog" title="Basic dialog" >
+             <input type="button" name="Nancy" value="Nancy, FR"  onClick="setMapView(2);"/> <br>
+             <input type="button" name="Rochester" value ="Rochester, NY" onClick="setMapView(3);"/><br>
+             <input type="button" name="Los Angeles" value ="Los Angeles, CA" onClick="setMapView(4);"/><br>
+             <input type="button" name="Blagnac" value ="Blagnac, FR" onClick="setMapView(6);"/><br>
+             <input type="button" name="Bordeaux" value ="Bordeaux, FR" onClick="setMapView(7);"/><br>
+        </div>
 
 
 
