@@ -310,7 +310,7 @@ var setMapView = function(id){
 
             var cityMaxZoomLevel = currentCityData.MaxZoomLevels;
 
-            map.setView( cityCenterLatLng, cityMaxZoomLevel, 13);
+            map.setView( cityCenterLatLng, 13);
 //            map.setMaxBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
 //                                            new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
 
