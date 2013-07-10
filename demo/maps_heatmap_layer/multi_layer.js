@@ -309,15 +309,15 @@ var setMapView = function(id){
             var cityCenterLatLng = new L.LatLng(cityCenterLat, cityCenterLng);
 
             var cityMaxZoomLevel = currentCityData.MaxZoomLevels;
-//
 
-            map.setMaxBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
-                                            new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
-            map.setView(cityCenterLatLng, 13, {maxzoom: cityMaxZoomLevel});
 
-//            map.fitBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
-//                new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
-//            map.setZoom(13);
+//            map.setMaxBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
+//                                            new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
+//            map.setView(cityCenterLatLng, 13, {maxzoom: cityMaxZoomLevel});
+
+            map.fitBounds(new L.latLngBounds(new L.LatLng(currentCityData.MinBound.Locations.Location.Y, currentCityData.MinBound.Locations.Location.X),
+                new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
+            map.setZoom(13);
 
         }
     }
