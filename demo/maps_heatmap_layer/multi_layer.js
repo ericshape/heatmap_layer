@@ -104,7 +104,7 @@ var loadBusStopsData = function(dataset, layer){
     dataset.forEach(function(d) {
 //        marker.push(new L.marker([d.Y, d.X], {title: d.Metadata[0].Value}));
 
-        var marker = new L.marker([d.Y, d.X], {title: d.Metadata[0].Value});
+        var marker = new L.marker([d.Y, d.X], {title: d.Metadata[0].Value, icon: busIcon});
         layer.addLayer(marker);
     });
 
@@ -548,6 +548,14 @@ heatmapData.mapView = Backbone.View.extend({
         //////////////////////////////////
         /// Bus icon setting
         /////////////////////////////////
+        var busIcon = L.icon({
+            iconUrl: 'Resources/station.png',
+
+            iconSize: [20, 20], // size of the icon
+            iconAnchor: [0, 0] // offset of the icon display from the given Lat and Lng
+        });
+
+
         var bikeIcon = L.icon({
             iconUrl: 'marker-bike-green-shadowed.png',
             iconSize: [25, 39],
