@@ -96,7 +96,7 @@ var busController = function(){
 /// Bus icon setting
 /////////////////////////////////
 var busIcon = L.icon({
-    iconUrl: '/src/images/station.png',
+    iconUrl: '../../src/images/station.png',
 
     iconSize: [20, 20], // size of the icon
     iconAnchor: [0, 0] // offset of the icon display from the given Lat and Lng
