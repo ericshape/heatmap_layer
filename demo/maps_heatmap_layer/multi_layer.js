@@ -103,6 +103,14 @@ var busIcon = L.icon({
     iconAnchor: [0, 0] // offset of the icon display from the given Lat and Lng
 });
 
+var busMovingIcon = L.icon({
+    iconUrl: '../../src/images/marker-icon.png',
+
+    iconSize: [20, 30], // size of the icon
+    iconAnchor: [-5, -5] // offset of the icon display from the given Lat and Lng
+});
+
+
 
 ////////////////////////////////////
 ///  Bus Stops Data Loading
@@ -206,7 +214,7 @@ var loadData = function (map, animiationLayer, id) {
 
         //pushing items into array each by each and then add markers
         for (var j = 0; j < items.length; j++) {
-            var LamMarker = new L.marker([items[j].lat, items[j].lon]);
+            var LamMarker = new L.marker([items[j].lat, items[j].lon],{icon: busMovingIcon} );
             marker.push(LamMarker);
 
         }
