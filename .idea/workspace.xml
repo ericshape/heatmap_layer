@@ -7,7 +7,7 @@
     </list>
     <ignored path="heatmap_layer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373535342672" ignored="false" />
+    <file path="/Dummy.txt" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373535555219" ignored="false" />
     <file path="/README.md" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1370965220096" ignored="false" />
     <file path="/leaflet.html" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373453294288" ignored="false" />
     <file path="/multi_layer.js" changelist="087a8ce9-a3c1-454b-b3d5-df31fb677071" time="1373534978233" ignored="false" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="multi_layer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="26" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.7519231">
+            <state line="532" column="46" selection-start="16617" selection-end="16617" vertical-scroll-proportion="0.3653846">
               <folding />
             </state>
           </provider>
@@ -601,7 +601,11 @@
       <created>1373535364762</created>
       <updated>1373535364763</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="add city selector">
+      <created>1373535559794</created>
+      <updated>1373535559794</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -849,7 +853,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo/maps_heatmap_layer/multi_layer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="26" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.7519231">
+        <state line="532" column="46" selection-start="16617" selection-end="16617" vertical-scroll-proportion="0.3653846">
           <folding />
         </state>
       </provider>

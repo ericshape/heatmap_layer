@@ -459,7 +459,7 @@ heatmapData.mapView = Backbone.View.extend({
         var heatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 10, absolute: false },
+            radius: { value: 30, absolute: false },
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
@@ -502,7 +502,7 @@ heatmapData.mapView = Backbone.View.extend({
         });
 
         // heatmap data set
-        travelTimeLayer.setData_X_Y_Min(travelTime);
+        travelTimeLayer.setData_X_Y(travelTime);
 
 
         ///////////////////////////////
