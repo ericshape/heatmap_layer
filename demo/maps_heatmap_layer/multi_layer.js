@@ -119,8 +119,6 @@ var loadBusStopsData = function(dataset, layer){
         layer.addLayer(marker);
     });
 
-//    L.layerGroup(marker)
-//        .addTo(layer);
 };
 
 ////////////////////////////////////
@@ -128,57 +126,7 @@ var loadBusStopsData = function(dataset, layer){
 ///////////////////////////////////
 
 
-var drawBus = function (animationlayer, timestamp_id, timestamp_number, marker) {
 
-    items = timestamp_hashtable[timestamp_number[timestamp_id]];
-
-    //                   console.log(items);
-
-    // creat the animation layer
-
-
-    //pushing items into array each by each and then add markers
-    for (var j = 0; j < items.length; j++) {
-        var LamMarker = new L.marker([items[j].lat, items[j].lon]);
-        marker.push(LamMarker);
-
-    }
-
-
-
-    L.layerGroup(marker)
-        .addTo(animiationlayer);
-
-
-    setTimeout(function () {
-
-        //clear layers
-        animiationLayer.clearLayers();
-
-        //clear marker
-        marker.length = 0;
-
-        if (timestamp_number_id < timestamp_number.length) {
-            timestamp_number_id++;
-            drawBus(timestamp_number_id);
-        }
-    }, 100);
-
-//    settime = function () {
-//
-//        //clear layers
-//        animiationLayer.clearLayers();
-//
-//        //clear marker
-//        marker.length = 0;
-//
-//        if (timestamp_number_id < timestamp_number.length) {
-//            timestamp_number_id++;
-//            drawBus(timestamp_number_id);
-//        }
-//    };
-
-};
 
 
 
@@ -187,9 +135,7 @@ var drawBus = function (animationlayer, timestamp_id, timestamp_number, marker) 
 ///////////////////////////////////
 var timestamp_hashtable = new Array();
 
-var loadData = function (animiationLayer, id) {
-
-    var animationlayer = animiationLayer;
+var loadData = function (map, animiationLayer, id) {
 
     var routeLines = [];
 
@@ -209,8 +155,6 @@ var loadData = function (animiationLayer, id) {
     var i = 0;
 
     var j = 0;
-
-    var bus_route = L.polyline([[48.70159329801663, 6.211237829048656]]);
 
     var pre_timestamp = 0;
     var cur_timestamp = 0;
@@ -237,7 +181,6 @@ var loadData = function (animiationLayer, id) {
 
     });
 
-    //                console.log(timestamp_hashtable);
 
 
     /*create array:*/
@@ -248,12 +191,51 @@ var loadData = function (animiationLayer, id) {
     for (k in timestamp_hashtable) {
 
         timestamp_number.push(k);
+    }
+
+
+    var drawBus;
+    drawBus = function (timestamp_id) {
+
+        items = timestamp_hashtable[timestamp_number[timestamp_id]];
+
+        //                   console.log(items);
+
+        // creat the animation layer
+
+
+        //pushing items into array each by each and then add markers
+        for (var j = 0; j < items.length; j++) {
+            var LamMarker = new L.marker([items[j].lat, items[j].lon]);
+            marker.push(LamMarker);
+
+        }
+
+
+
+        L.layerGroup(marker)
+            .addTo(animiationLayer);
+
+
+        setTimeout(function () {
+
+            //clear layers
+            animiationLayer.clearLayers();
+
+            //clear marker
+            marker.length = 0;
+
+            if (timestamp_number_id < timestamp_number.length) {
+                timestamp_number_id++;
+                drawBus(timestamp_number_id);
+            }
+        }, 100);
+
     };
 
-//    drawBus(animationlayer, timestamp_number_id, timestamp_number, marker);
+    drawBus(timestamp_number_id);
 
 };
-
 
 
 // Define the heatmpaData
@@ -451,7 +433,7 @@ heatmapData.mapView = Backbone.View.extend({
         ////////////////////////////////
         var animationLayer =  L.layerGroup();
 
-        loadData(animationLayer, 4);
+        loadData(map,animationLayer, 4);
 
 
         /////////////////////////////////
@@ -492,13 +474,14 @@ heatmapData.mapView = Backbone.View.extend({
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0.01: "rgba(255, 255, 255, 0)",
+                0: "rgba(255, 255, 255, 0)",
                 0.1: "rgba(53, 52, 61, 180)",
                 0.2: "rgba(0, 234, 242, 220)",
                 0.4: "rgba(0, 180, 65, 220)",
                 0.6: "rgba(220, 252, 20, 220)",
                 0.8: "rgba(255, 100, 0, 220)",
                 1: "rgba(255, 1, 1, 220)"
+
             }
         });
 
