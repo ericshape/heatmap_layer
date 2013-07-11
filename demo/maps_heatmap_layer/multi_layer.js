@@ -63,6 +63,7 @@ $(document).ready(function () {
         $("#layersdialog").dialog({
             autoOpen: false,
             title: "Cities",
+            position: [110, 110],
             show: "fold"
         });
     });
