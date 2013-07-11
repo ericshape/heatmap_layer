@@ -92,6 +92,16 @@ var busController = function(){
 };
 
 
+//////////////////////////////////
+/// Bus icon setting
+/////////////////////////////////
+var busIcon = L.icon({
+    iconUrl: 'Resources/station.png',
+
+    iconSize: [20, 20], // size of the icon
+    iconAnchor: [0, 0] // offset of the icon display from the given Lat and Lng
+});
+
 
 ////////////////////////////////////
 ///  Bus Stops Data Loading
@@ -544,24 +554,6 @@ heatmapData.mapView = Backbone.View.extend({
         busstops_layer = busStopsLayer;
         busroute_layer = busRoutesLayer;
 
-
-        //////////////////////////////////
-        /// Bus icon setting
-        /////////////////////////////////
-        var busIcon = L.icon({
-            iconUrl: 'Resources/station.png',
-
-            iconSize: [20, 20], // size of the icon
-            iconAnchor: [0, 0] // offset of the icon display from the given Lat and Lng
-        });
-
-
-        var bikeIcon = L.icon({
-            iconUrl: 'marker-bike-green-shadowed.png',
-            iconSize: [25, 39],
-            iconAnchor: [12, 39],
-            shadowUrl: null
-        });
 
         ///////////////////////////////
         /// Base Layer Setting
