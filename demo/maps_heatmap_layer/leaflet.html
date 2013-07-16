@@ -32,6 +32,12 @@
                 left: 10px;
                 z-index: 1000;
             }
+            #legend {
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+                z-index: 1000;
+            }
         </style>
 
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
@@ -107,6 +113,8 @@
             <button id="citySelector">City Selector</button>
         </div>
         </div>
+
+        <div class="layers" id = "legend"></div>
 
         <div id="layersdialog" title="Basic dialog" >
              <input type="button" name="Nancy" value="Nancy, FR"  onClick="setMapView(2);"/> <br>

@@ -146,7 +146,7 @@
          this._maxValue = 65536;
          dataset.forEach(function(d) {
              latLngs.push(new L.LatLng(d.Key.Y, d.Key.X));
-             self._maxValue = Math.min(self._maxValue, d.Value);
+             self._maxValue = Math.max(self._maxValue, d.Value);
          });
          this._bounds = new L.LatLngBounds(latLngs);
 
@@ -242,7 +242,8 @@
             "visible": true,
             "opacity": 100,  // we use leaflet's opacity for tiles
             "gradient": options.gradient,
-            "debug": options.debug
+            "debug": options.debug,
+            "legend": options.legend
         });
 
         // padding

@@ -107,7 +107,7 @@ var busMovingIcon = L.icon({
     iconUrl: '../../src/images/marker-icon.png',
 
     iconSize: [20, 30], // size of the icon
-    iconAnchor: [-5, -5] // offset of the icon display from the given Lat and Lng
+    iconAnchor: [10, 15] // offset of the icon display from the given Lat and Lng
 });
 
 
@@ -461,6 +461,11 @@ heatmapData.mapView = Backbone.View.extend({
                 0.6: "rgba(220, 252, 20, 220)",
                 0.8: "rgba(255, 100, 0, 220)",
                 1: "rgba(255, 1, 1, 220)"
+            },
+            legend: {
+                container: document.getElementById("legend"),
+                position: "br",
+                title: 'Bus Load '
             }
         });
 
@@ -489,7 +494,11 @@ heatmapData.mapView = Backbone.View.extend({
                 0.6: "rgba(220, 252, 20, 220)",
                 0.8: "rgba(255, 100, 0, 220)",
                 1: "rgba(255, 1, 1, 220)"
-
+            },
+            legend: {
+                container: document.getElementById("legend"),
+                position: "br",
+                title: 'Bus Load '
             }
         });
 
@@ -515,6 +524,11 @@ heatmapData.mapView = Backbone.View.extend({
                 0.6: "rgba(220, 252, 20, 220)",
                 0.8: "rgba(255, 100, 0, 220)",
                 1: "rgba(255, 1, 1, 220)"
+            },
+            legend: {
+                container: document.getElementById("legend"),
+                position: "br",
+                title: 'Bus Load '
             }
         });
 
