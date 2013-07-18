@@ -91,7 +91,7 @@
             }else{
                 while(dlen--){
                     var point = d[dlen];
-                    heatmap.drawAlpha(point.x, point.y, point.count, false);
+                    heatmap.drawAlpha(point.x, point.y, point.count, true);
                     if(!data[point.x])
                         data[point.x] = [];
 
@@ -188,15 +188,15 @@
             }
 
             element = document.createElement("div");
-            element.style.cssText = "border-radius:5px;position:absolute;"+positionCss+"font-family:Helvetica; width:256px;z-index:10000000000; background:rgba(255,255,255,1);padding:10px;border:1px solid black;margin:0;";
+            element.style.cssText = "border-radius:5px;position:absolute;"+positionCss+"font-family:Helvetica; width:512px;z-index:10000000000; background:rgba(255,255,255,1);padding:10px;border:1px solid black;margin:0;";
             element.innerHTML = "<h3 style='padding:0;margin:0;text-align:center;font-size:16px;'>"+title+"</h3>";
             // create gradient in canvas
-            labelsEl.style.cssText = "position:relative;font-size:12px;display:block;list-style:none;list-style-type:none;margin:0;height:15px;";
+            labelsEl.style.cssText = "position:relative;font-size:10px;display:block;list-style:none;list-style-type:none;margin:0;height:15px;";
             
 
             // create gradient element
             gradient = document.createElement("div");
-            gradient.style.cssText = ["position:relative;display:block;width:256px;height:15px;border-bottom:1px solid black; background-image:url(",me.createGradientImage(),");"].join("");
+            gradient.style.cssText = ["position:relative;display:block;width:512px;height:15px;border-bottom:1px solid black; background-image:url(",me.createGradientImage(),");"].join("");
 
             element.appendChild(labelsEl);
             element.appendChild(gradient);
@@ -233,27 +233,27 @@
                 ctx = canvas.getContext("2d"),
                 grad;
             // the gradient in the legend including the ticks will be 256x15px
-            canvas.width = "256";
+            canvas.width = "520";
             canvas.height = "15";
 
-            grad = ctx.createLinearGradient(0,5,256,10);
+            grad = ctx.createLinearGradient(0,5,520,10);
 
             for(var i = 0; i < length; i++){
                 grad.addColorStop(1/(length-1) * i, gradArr[i].value);
             }
 
             ctx.fillStyle = grad;
-            ctx.fillRect(0,5,256,10);
+            ctx.fillRect(0,5,520,10);
             ctx.strokeStyle = "black";
             ctx.beginPath();
  
             for(var i = 0; i < length; i++){
-                ctx.moveTo(((1/(length-1)*i*256) >> 0)+.5, 0);
-                ctx.lineTo(((1/(length-1)*i*256) >> 0)+.5, (i==0)?15:5);
+                ctx.moveTo(((1/(length-1)*i*512) >> 0)+.5, 0);
+                ctx.lineTo(((1/(length-1)*i*512) >> 0)+.5, (i==0)?15:5);
             }
-            ctx.moveTo(255.5, 0);
-            ctx.lineTo(255.5, 15);
-            ctx.moveTo(255.5, 4.5);
+            ctx.moveTo(511, 0);
+            ctx.lineTo(511, 15);
+            ctx.moveTo(511, 4.5);
             ctx.lineTo(0, 4.5);
             
             ctx.stroke();
@@ -276,6 +276,8 @@
             for(var i = 0; i < gradient.length; i++){
 
                 labelText = max*gradient[i].stop >> 0;
+                if (labelText >1000) labelText = labelText/1000 + " K";
+
                 offset = (ctx.measureText(labelText).width/2) >> 0;
 
                 if(i == 0){
@@ -284,7 +286,7 @@
                 if(i == gradient.length-1){
                     offset *= 2;
                 }
-                labelsHtml += '<li style="position:absolute;left:'+(((((1/(gradient.length-1)*i*256) || 0)) >> 0)-offset+.5)+'px">'+labelText+'</li>';
+                labelsHtml += '<li style="position:absolute;left:'+(((((1/(gradient.length-1)*i*512) || 0)) >> 0)-offset+.5)+'px">'+labelText+'</li>';
             }       
             labels.innerHTML = labelsHtml;
         }
@@ -518,10 +520,16 @@
                 imageData = image.data;
                 length = imageData.length;
                 // loop thru the area
+                var preAlpha = imageData[3];
+
                 for(var i=3; i < length; i+=4){
 
                     // [0] -> r, [1] -> g, [2] -> b, [3] -> alpha
-                    alpha = imageData[i],
+                    alpha = imageData[i];
+
+//                    if (alpha > (preAlpha+alpha)/2)
+//                        alpha = (preAlpha+alpha)/2;
+
                     offset = alpha*4;
 
                     if(!offset)
@@ -529,7 +537,14 @@
 
                     // we ve started with i=3
                     // set the new r, g and b values
-                    finalAlpha = (alpha < opacity)?alpha:opacity;
+//                    finalAlpha = (alpha > opacity)?alpha:opacity;
+                    finalAlpha = alpha;
+//                    if (alpha){
+//                        console.log(alpha);
+//                    }
+
+
+
                     imageData[i-3]=palette[offset];
                     imageData[i-2]=palette[offset+1];
                     imageData[i-1]=palette[offset+2];
@@ -561,14 +576,27 @@
                     xb = x - (1.5 * radius) >> 0, yb = y - (1.5 * radius) >> 0,
                     xc = x + (1.5 * radius) >> 0, yc = y + (1.5 * radius) >> 0;
 
-                ctx.shadowColor = ('rgba(0,0,0,'+((count)?(count/me.store.max):'0.1')+')');
+                //shadowColor:
+                ctx.shadowColor = ('rgba(0,0,0,-1)');
 
-                ctx.shadowOffsetX = 15000; 
-                ctx.shadowOffsetY = 15000; 
-                ctx.shadowBlur = 15; 
+                ctx.shadowOffsetX = 15000;
+                ctx.shadowOffsetY = 15000;
+                ctx.shadowBlur = 5;
 
                 ctx.beginPath();
-                ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);
+                ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);      // draw a circle
+                ctx.closePath();
+                ctx.fill();
+
+
+                ctx.shadowColor = ('rgba(0,0,0,'+((count)?((count/me.store.max)):'1')+')');
+
+                ctx.shadowOffsetX = 15000;
+                ctx.shadowOffsetY = 15000; 
+                ctx.shadowBlur = 0;
+
+                ctx.beginPath();
+                ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);      // draw a circle
                 ctx.closePath();
                 ctx.fill();
                 if(colorize){

@@ -454,7 +454,6 @@ heatmapData.mapView = Backbone.View.extend({
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0: "rgba(255, 255, 255, 0)",
                 0.1: "rgba(53, 52, 61, 180)",
                 0.2: "rgba(0, 234, 242, 220)",
                 0.4: "rgba(0, 180, 65, 220)",
@@ -465,7 +464,7 @@ heatmapData.mapView = Backbone.View.extend({
             legend: {
                 container: document.getElementById("legend"),
                 position: "br",
-                title: 'Bus Load '
+                title: 'Bus Station Load '
             }
         });
 
@@ -487,8 +486,6 @@ heatmapData.mapView = Backbone.View.extend({
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0: "rgba(255, 255, 255, 0)",
-                0.1: "rgba(53, 52, 61, 180)",
                 0.2: "rgba(0, 234, 242, 220)",
                 0.4: "rgba(0, 180, 65, 220)",
                 0.6: "rgba(220, 252, 20, 220)",
@@ -498,8 +495,9 @@ heatmapData.mapView = Backbone.View.extend({
             legend: {
                 container: document.getElementById("legend"),
                 position: "br",
-                title: 'Bus Load '
-            }
+                title: 'Travel Time (min)'
+            },
+            minOrder: true
         });
 
         // heatmap data set
@@ -517,18 +515,16 @@ heatmapData.mapView = Backbone.View.extend({
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0: "rgba(255, 255, 255, 0)",
-                0.1: "rgba(53, 52, 61, 180)",
-                0.2: "rgba(0, 234, 242, 220)",
-                0.4: "rgba(0, 180, 65, 220)",
-                0.6: "rgba(220, 252, 20, 220)",
-                0.8: "rgba(255, 100, 0, 220)",
+                0.0: "rgba(0, 234, 242, 220)",
+                0.1: "rgba(0, 180, 65, 220)",
+                0.2: "rgba(220, 252, 20, 220)",
+                0.4: "rgba(255, 100, 0, 220)",
                 1: "rgba(255, 1, 1, 220)"
             },
             legend: {
                 container: document.getElementById("legend"),
                 position: "br",
-                title: 'Bus Load '
+                title: 'Find Destination (Passenger Number) '
             }
         });
 
@@ -581,7 +577,7 @@ heatmapData.mapView = Backbone.View.extend({
         /// Overlayer Setting
         ///////////////////////////
         var overlayMaps = {
-            'Heatmap': heatmapLayer,
+            'Station Load': heatmapLayer,
             'Animation': animationLayer,
             'Travel Time': travelTimeLayer,
             'Find Destination': findDestinationLayer,

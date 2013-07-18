@@ -243,7 +243,8 @@
             "opacity": 100,  // we use leaflet's opacity for tiles
             "gradient": options.gradient,
             "debug": options.debug,
-            "legend": options.legend
+            "legend": options.legend,
+            'minOrder': options.minOrder
         });
 
         // padding
