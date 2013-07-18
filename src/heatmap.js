@@ -221,7 +221,7 @@
             gradientArr.sort(function(a, b){
                 return (a.stop - b.stop);
             });
-            gradientArr.unshift({ stop: 0, value: 'rgba(0,0,0,0)' });
+//            gradientArr.unshift({ stop: 0, value: 'rgba(0,0,0,0)' });
 
             me.set("gradientArr", gradientArr);
         },
@@ -431,6 +431,8 @@
             for(var x in gradient){
                 grad.addColorStop(x, gradient[x]);
             }
+
+            console.log(grad.toLocaleString());
 
             ctx.fillStyle = grad;
             ctx.fillRect(0,0,1,256);
