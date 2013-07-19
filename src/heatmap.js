@@ -421,23 +421,22 @@
             // Test how the browser renders alpha by setting a partially transparent pixel
             // and reading the result.  A good browser will return a value reasonably close
             // to what was set.  Some browsers (e.g. on Android) will return a ridiculously wrong value.
-            testData = ctx.getImageData(0,0,1,1);
-            testData.data[0] = testData.data[3] = 64; // 25% red & alpha
-            testData.data[1] = testData.data[2] = 0; // 0% blue & green
-            ctx.putImageData(testData, 0, 0);
-            testData = ctx.getImageData(0,0,1,1);
-            me.set("premultiplyAlpha", (testData.data[0] < 60 || testData.data[0] > 70));
+//            testData = ctx.getImageData(0,0,1,1);
+//            testData.data[0] = testData.data[3] = 64; // 25% red & alpha
+//            testData.data[1] = testData.data[2] = 0; // 0% blue & green
+//            ctx.putImageData(testData, 0, 0);
+//            testData = ctx.getImageData(0,0,1,1);
+//            me.set("premultiplyAlpha", (testData.data[0] < 60 || testData.data[0] > 70));
             
             for(var x in gradient){
                 grad.addColorStop(x, gradient[x]);
             }
 
-            console.log(grad.toLocaleString());
-
             ctx.fillStyle = grad;
             ctx.fillRect(0,0,1,256);
 
             me.set("gradient", ctx.getImageData(0,0,1,256).data);
+
         },
         getWidth: function(element){
             var width = element.offsetWidth;
@@ -529,10 +528,9 @@
                     // [0] -> r, [1] -> g, [2] -> b, [3] -> alpha
                     alpha = imageData[i];
 
-//                    if (alpha > (preAlpha+alpha)/2)
-//                        alpha = (preAlpha+alpha)/2;
-
                     offset = alpha*4;
+
+//                    if (imageData[i]>1) console.log(alpha);
 
                     if(!offset)
                         continue;
@@ -541,16 +539,11 @@
                     // set the new r, g and b values
 //                    finalAlpha = (alpha > opacity)?alpha:opacity;
                     finalAlpha = alpha;
-//                    if (alpha){
-//                        console.log(alpha);
-//                    }
-
-
 
                     imageData[i-3]=palette[offset];
                     imageData[i-2]=palette[offset+1];
                     imageData[i-1]=palette[offset+2];
-                    
+
                     if (premultiplyAlpha) {
                     	// To fix browsers that premultiply incorrectly, we'll pass in a value scaled
                     	// appropriately so when the multiplication happens the correct value will result.
@@ -562,10 +555,13 @@
                     // we want the heatmap to have a gradient from transparent to the colors
                     // as long as alpha is lower than the defined opacity (maximum), we'll use the alpha value
                     imageData[i] = finalAlpha;
+
                 }
                 // the rgb data manipulation didn't affect the ImageData object(defined on the top)
                 // after the manipulation process we have to set the manipulated data to the ImageData object
                 image.data = imageData;
+
+ //               console.log(image.data);
                 ctx.putImageData(image, left, top);
         },
         drawAlpha: function(x, y, count, colorize){
@@ -578,23 +574,23 @@
                     xb = x - (1.5 * radius) >> 0, yb = y - (1.5 * radius) >> 0,
                     xc = x + (1.5 * radius) >> 0, yc = y + (1.5 * radius) >> 0;
 
-                //shadowColor:
-                ctx.shadowColor = ('rgba(0,0,0,-1)');
+//                //shadowColor:
+//                ctx.fillStyle =  ('rgba(0,0,0,'+((count)?((count/me.store.max)):'0.1')+')');
+//
+//                ctx.shadowOffsetX = 15000;
+//                ctx.shadowOffsetY = 15000;
+//                ctx.shadowBlur = 5;
+//
+//                ctx.beginPath();
+//                ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);      // draw a circle
+//                ctx.closePath();
+//                ctx.fill();
+
+
+                ctx.shadowColor = ('rgba(0,0,0,'+((count)?((count/me.store.max)):'0.1')+')');
 
                 ctx.shadowOffsetX = 15000;
                 ctx.shadowOffsetY = 15000;
-                ctx.shadowBlur = 5;
-
-                ctx.beginPath();
-                ctx.arc(x - 15000, y - 15000, radius, 0, Math.PI * 2, true);      // draw a circle
-                ctx.closePath();
-                ctx.fill();
-
-
-                ctx.shadowColor = ('rgba(0,0,0,'+((count)?((count/me.store.max)):'1')+')');
-
-                ctx.shadowOffsetX = 15000;
-                ctx.shadowOffsetY = 15000; 
                 ctx.shadowBlur = 0;
 
                 ctx.beginPath();
