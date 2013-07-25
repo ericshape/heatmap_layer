@@ -450,7 +450,7 @@ heatmapData.mapView = Backbone.View.extend({
         var heatmapLayer = L.TileLayer.heatMap({
             // radius could be absolute or relative
             // absolute: radius in meters, relative: radius in pixels
-            radius: { value: 30, absolute: false },
+            radius: { value: 10, absolute: false },
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
@@ -487,13 +487,14 @@ heatmapData.mapView = Backbone.View.extend({
             //radius: { value: 20, absolute: false },
             opacity: 0.9,
             gradient: {
-                0: "rgba(255, 255, 255, 0)",
-                0.1: "rgba(53, 52, 61, 180)",
-                0.2: "rgba(0, 234, 242, 220)",
+                0: "rgba(255, 1, 1, 220)",
+                0.1: "rgba(255, 100, 0, 220)",
+                0.2: "rgba(220, 252, 20, 220)",
                 0.4: "rgba(0, 180, 65, 220)",
-                0.6: "rgba(220, 252, 20, 220)",
-                0.8: "rgba(255, 100, 0, 220)",
-                1: "rgba(255, 1, 1, 220)"
+                0.6: "rgba(0, 234, 242, 220)",
+                0.8: "rgba(53, 52, 61, 180)",
+                1: "rgba(255, 255, 255, 0)"
+
             },
             legend: {
                 container: document.getElementById("legend"),
