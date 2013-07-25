@@ -61,10 +61,21 @@ $(document).ready(function () {
     $.fx.speeds._default = 1000;
     $(function () {
         $("#layersdialog").dialog({
-            autoOpen: false,
+            autoOpen: true,
             title: "Cities",
-            position: [110, 110],
-            show: "fold"
+            position: "center",
+            show: "fold",
+            modal: true,
+            open: function() {
+                $(".ui-widget-overlay").css({background: "gray", opacity:1.0});
+                $('.ui-widget-overlay').bind('click', function() {
+                    $('#layersdialog').dialog('close');
+                })
+            },
+            close: function() {
+                $(".ui-widget-overlay").css({background: '', opacity: ''});
+            }
+
         });
     });
 });
