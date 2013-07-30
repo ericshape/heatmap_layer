@@ -82,6 +82,8 @@ $(document).ready(function () {
 
 
 
+
+
 /////////////////////////////////
 ///  Load XML file heleper function
 ////////////////////////////////
@@ -496,6 +498,9 @@ var setMapView = function(id){
         }
 
     }
+
+    // when all the map settings are ready, close the dialog box.
+    $('#layersdialog').dialog('close');
 };
 
 //////////////////////////////
