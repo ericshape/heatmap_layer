@@ -300,6 +300,14 @@ var heatmapdata_list = new heatmapDataList();
 
 var map;
 
+var heatmap_layer,
+    animation_layer,
+    busstops_layer,
+    busroute_layer,
+    traveltime_layer,
+    finddestination_layer;
+
+
 ////////////////////////////////////
 /// setMapView
 ////////////////////////////////////
@@ -307,11 +315,122 @@ var setMapView = function(id){
 
     console.log(id);
 
+    //////////////////////////
+    /// Map Tile Layer Config
+    /////////////////////////
+
+    var whiteOnBlackLayer = L.tileLayer(
+        'http://spider:56721/WhiteOnBlack/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var blackOnWhiteLayer = L.tileLayer(
+        'http://spider:56721/BlackOnWhite/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var dayEagleLayer = L.tileLayer(
+        'http://spider:56721/DayEagle/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var nightHawkLayer = L.tileLayer(
+        'http://spider:56721/NightHAWK/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var blackOnBlackLayer = L.tileLayer(
+        'http://spider:56721/BlackOnBlack/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var colorFullLayer = L.tileLayer(
+        'http://spider:56721/ColorFull/{z}/{x}/{y}.png ', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+
+    var cloudmadeLayer = L.tileLayer(
+        'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var XRCELayer = L.tileLayer(
+        "http://dolent.grenoble.xrce.xerox.com/GeoServer/tiles/{z}/{x}/{y}.png", {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    var openXeroxLayer = L.tileLayer(
+        "http://services.open.xerox.com/WebApp.svc/OpenStreetMapTiles/{z}/{x}/{y}.png", {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            maxZoom: 18
+        }
+    );
+
+    ///////////////////////////////
+    /// Base Layer Setting
+    //////////////////////////////
+    var baseMaps = {
+        'Cloudmade Layer': cloudmadeLayer,
+        'Xtile: ColorFull': colorFullLayer,
+        'Xtile: WhiteOnBlack':whiteOnBlackLayer,
+        'Xtile: BlackOnWhite': blackOnWhiteLayer,
+        'Xtile: DayEagle': dayEagleLayer,
+        'Xtile: NightHawk': nightHawkLayer,
+        'Xtile: BlackOnBlack': blackOnBlackLayer,
+        'XRCE Tile': XRCELayer,
+        'Open Xerox Tile': openXeroxLayer
+    };
+
+    ////////////////////////////
+    /// Overlayer Setting
+    ///////////////////////////
+    var overlayMaps = {
+//        'Station Load': heatmapLayer,
+//        'Animation': animationLayer,
+//        'Travel Time': travelTimeLayer,
+//        'Find Destination': findDestinationLayer,
+//        'Bus Stops': busStopsLayer,
+//        'Bus Routes': busRoutesLayer
+    };
+
+
     // iteration the cities.json and find the matached ID
     for (var k in citiesSelectData.ArrayOfCity.City){
         // find the matched id
         var currentCityData =  citiesSelectData.ArrayOfCity.City[k];
         if (id == currentCityData.Id){
+
+            if (map != null){
+                map.remove();
+            }
+
+            ////////////////////////////
+            /// Base Map Layer setting.
+            ////////////////////////////
+
+            map = new L.Map('map', {
+                center: new L.LatLng(48.68, 6.17),
+                zoom: 13,
+                layers: [cloudmadeLayer]
+            });
+
 
             var cityCenterLat = (parseFloat(currentCityData.MinBound.Locations.Location.Y) +
                                 parseFloat(currentCityData.MaxBound.Locations.Location.Y))/2.0;
@@ -331,7 +450,51 @@ var setMapView = function(id){
                 new L.LatLng(currentCityData.MaxBound.Locations.Location.Y, currentCityData.MaxBound.Locations.Location.X)));
             map.setZoom(13);
 
+            ////////////////////////
+            ///  Default Time
+            ////////////////////////
+            var cityDefaultStartDate = currentCityData.DefaultStartDate;
+            var cityDefaultEndDate = currentCityData.DefaultEndDate;
+
+
+            ////////////////////////
+            ///  Loading Service
+            ////////////////////////
+
+            var cityService = currentCityData.Services.string;
+
+            ////////////////////////////
+            /// Overlayer Setting
+            ///////////////////////////
+
+            for (var serviceNumber in cityService){
+                switch (cityService[serviceNumber]){
+                    case "NetworkService":   overlayMaps.NetworkService = busroute_layer;     break;
+                    case "OriginDestinationService":       overlayMaps.OriginDestinationService = finddestination_layer;  break;
+                    case "StationLoadService":       overlayMaps.StationLoadService = busstops_layer; break;
+                    case "TravelTimeService":      overlayMaps.TravelTimeService = traveltime_layer; break;
+                    case "TripPlannerService":       overlayMaps.TripPlannerService = heatmap_layer; break;
+                    case "VehicleLoadService":       overlayMaps.VehicleLoadService = animation_layer; break;
+                    default:     overlayMaps[cityService[serviceNumber]] = Math.random();
+                }
+
+            }
+
+
+
+ //           overlayMaps.StationLoad = cityDefaultStartDate;
+
+            console.log(overlayMaps);
+
+            ////////////////////////////
+            /// Control Layer Setting
+            ////////////////////////////
+            var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: true });
+            controls.addTo(map);
+
+
         }
+
     }
 };
 
@@ -360,73 +523,6 @@ heatmapData.mapView = Backbone.View.extend({
 //
 //        tileContent = xmlDoc.getElementsByTagName("TileUrls")[0].firstChild.nextSibling;
 
-        //////////////////////////
-        /// Map Tile Layer Config
-        /////////////////////////
-
-        var whiteOnBlackLayer = L.tileLayer(
-            'http://spider:56721/WhiteOnBlack/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var blackOnWhiteLayer = L.tileLayer(
-            'http://spider:56721/BlackOnWhite/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var dayEagleLayer = L.tileLayer(
-            'http://spider:56721/DayEagle/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var nightHawkLayer = L.tileLayer(
-            'http://spider:56721/NightHAWK/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var blackOnBlackLayer = L.tileLayer(
-            'http://spider:56721/BlackOnBlack/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var colorFullLayer = L.tileLayer(
-            'http://spider:56721/ColorFull/{z}/{x}/{y}.png ', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-
-        var cloudmadeLayer = L.tileLayer(
-            'http://{s}.tile.cloudmade.com/ad132e106cd246ec961bbdfbe0228fe8/997/256/{z}/{x}/{y}.png', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var XRCELayer = L.tileLayer(
-            "http://dolent.grenoble.xrce.xerox.com/GeoServer/tiles/{z}/{x}/{y}.png", {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
-
-        var openXeroxLayer = L.tileLayer(
-            "http://services.open.xerox.com/WebApp.svc/OpenStreetMapTiles/{z}/{x}/{y}.png", {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-                maxZoom: 18
-            }
-        );
 
         ////////////////////////////
         ////  Bus Routes Display
@@ -551,15 +647,15 @@ heatmapData.mapView = Backbone.View.extend({
 
 
 
-        ////////////////////////////
-        /// Base Map Layer setting.
-        ////////////////////////////
-
-        map = new L.Map('map', {
-            center: new L.LatLng(48.68, 6.17),
-            zoom: 13,
-            layers: [cloudmadeLayer]
-        });
+//        ////////////////////////////
+//        /// Base Map Layer setting.
+//        ////////////////////////////
+//
+//        map = new L.Map('map', {
+//            center: new L.LatLng(48.68, 6.17),
+//            zoom: 13,
+//            layers: [cloudmadeLayer]
+//        });
 
         // make accessible for debugging
         heatmapdata_listshow = heatmapdata_list;
@@ -572,42 +668,39 @@ heatmapData.mapView = Backbone.View.extend({
         animation_layer = animationLayer;
         busstops_layer = busStopsLayer;
         busroute_layer = busRoutesLayer;
+        traveltime_layer = travelTimeLayer;
+        finddestination_layer = findDestinationLayer;
 
 
-        ///////////////////////////////
-        /// Base Layer Setting
-        //////////////////////////////
-        var baseMaps = {
-            'Cloudmade Layer': cloudmadeLayer,
-            'Xtile: ColorFull': colorFullLayer,
-            'Xtile: WhiteOnBlack':whiteOnBlackLayer,
-            'Xtile: BlackOnWhite': blackOnWhiteLayer,
-            'Xtile: DayEagle': dayEagleLayer,
-            'Xtile: NightHawk': nightHawkLayer,
-            'Xtile: BlackOnBlack': blackOnBlackLayer,
-            'XRCE Tile': XRCELayer,
-            'Open Xerox Tile': openXeroxLayer
-        };
+
+//        ///////////////////////////////
+//        /// Base Layer Setting
+//        //////////////////////////////
+//        var baseMaps = {
+//            'Cloudmade Layer': cloudmadeLayer,
+//            'Xtile: ColorFull': colorFullLayer,
+//            'Xtile: WhiteOnBlack':whiteOnBlackLayer,
+//            'Xtile: BlackOnWhite': blackOnWhiteLayer,
+//            'Xtile: DayEagle': dayEagleLayer,
+//            'Xtile: NightHawk': nightHawkLayer,
+//            'Xtile: BlackOnBlack': blackOnBlackLayer,
+//            'XRCE Tile': XRCELayer,
+//            'Open Xerox Tile': openXeroxLayer
+//        };
 
 
-        ////////////////////////////
-        /// Overlayer Setting
-        ///////////////////////////
-        var overlayMaps = {
-            'Station Load': heatmapLayer,
-            'Animation': animationLayer,
-            'Travel Time': travelTimeLayer,
-            'Find Destination': findDestinationLayer,
-            'Bus Stops': busStopsLayer,
-            'Bus Routes': busRoutesLayer
-        };
+
+//
+//        ////////////////////////////
+//        /// Control Layer Setting
+//        ////////////////////////////
+//        var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: true });
+//        controls.addTo(map);
 
 
-        ////////////////////////////
-        /// Control Layer Setting
-        ////////////////////////////
-        var controls = L.control.layers(baseMaps, overlayMaps, { collapsed: true });
-        controls.addTo(map);
+
+
+
     }
 
 
