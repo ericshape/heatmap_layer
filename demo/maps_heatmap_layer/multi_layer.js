@@ -23,34 +23,85 @@
 ////////////////////////////////
 
 
+/////////////////////////////////
+/// Bus Move Animation Layer
+////////////////////////////////
+var animationLayer =  L.layerGroup();
+
+
 
 /////////////////////////////////
 ///  slider rendering
 ////////////////////////////////
 
 $(document).ready(function () {
+
+    // initialize slider
+    var currentSlide = 0;
+    var playInterval;
+    var slideDuration = 100; // in milliseconds
+    var autoRewind = true;
+
+
     $("#basemapslider").slider({
-        animate: true,
+        animate: false,
         value: 1,
-        min: 0,
-        max: 1,
-        step: 0.1,
-        slide: function (event, ui) {
-//            mapquest.setOpacity(ui.value);
-//            nysdop.setOpacity(1 - ui.value);
-        }
-    });
-    $("#zoomslider").slider({
-        animate: true,
-        orientation: "vertical",
-        value: 12,
-        min: 0,
-        max: 20,
+        min: 1,
+        max: 720,
         step: 1,
         slide: function (event, ui) {
-            heatmapData.mapView.draw()
+            setSlide(ui.value);
         }
     });
+
+    $( "#play" ).button({
+        icons: {
+            primary: "ui-icon-play"
+        },
+        text: false
+    }).click(function () {
+            if (playInterval != undefined) {
+                clearInterval(playInterval);
+                playInterval = undefined;
+                $(this).button({
+                    icons: {
+                        primary: "ui-icon-play"
+                    }
+                });
+                return;
+            }
+            $(this).button({
+                icons: {
+                    primary: "ui-icon-pause"
+                }
+            });
+            playInterval = setInterval(function () {
+                currentSlide++;
+                if (currentSlide > 720) {
+                    if (autoRewind) {
+                        currentSlide = 0;
+                    }
+                    else {
+                        clearIntveral(playInterval);
+                        return;
+                    }
+                }
+                setSlide(currentSlide);
+            }, slideDuration);
+        });
+
+    function setSlide (index) {
+        currentSlide = index;
+
+        drawBus(currentSlide, animationLayer);
+
+        $( "#basemapslider" ).slider( "value", index );
+
+    }
+
+
+
+
     $(function () {
         $("button", ".layers").button();
         $("button", ".layers").click(function () {
@@ -58,6 +109,8 @@ $(document).ready(function () {
             return false;
         });
     });
+
+
     $.fx.speeds._default = 1000;
     $(function () {
         $("#layersdialog").dialog({
@@ -78,6 +131,7 @@ $(document).ready(function () {
 
         });
     });
+
 });
 
 
@@ -101,7 +155,11 @@ var checkXMLDocObj = function (xmlFile) {
 ///  Bus Stops Data Loading
 ///////////////////////////////////
 
-var busController = function(){
+var busController = function(timestamp){
+
+    var cur_timestamp = timestamp;
+
+
 
 };
 
@@ -145,8 +203,64 @@ var loadBusStopsData = function(dataset, layer){
 ////////////////////////////////////
 ///  Draw Bus Moving
 ///////////////////////////////////
+/*create array:*/
+var marker = new Array();
+var timestamp_number = [];
+var timestamp_number_id = 0;
 
 
+
+
+var drawBus;
+
+drawBus = function (timestamp_id, Animation_Layer) {
+
+    //clear layers
+    Animation_Layer.clearLayers();
+
+    //clear marker
+    marker.length = 0;
+
+
+    items = timestamp_hashtable[timestamp_number[timestamp_id]];
+
+    //                   console.log(items);
+
+    // creat the animation layer
+
+
+    //pushing items into array each by each and then add markers
+    for (var j = 0; j < items.length; j++) {
+        var LamMarker = new L.marker([items[j].lat, items[j].lon],{icon: busMovingIcon} );
+        marker.push(LamMarker);
+
+    }
+
+
+    console.log(timestamp_id);
+
+
+
+
+    L.layerGroup(marker)
+        .addTo(Animation_Layer);
+
+
+//    setTimeout(function () {
+//
+//        //clear layers
+//        Animation_Layer.clearLayers();
+//
+//        //clear marker
+//        marker.length = 0;
+//
+//        if (timestamp_number_id < timestamp_number.length) {
+//            timestamp_number_id++;
+//            drawBus(timestamp_number_id, Animation_Layer);
+//        }
+//    }, 100);
+
+};
 
 
 
@@ -204,57 +318,20 @@ var loadData = function (map, animiationLayer, id) {
 
 
 
-    /*create array:*/
-    var marker = new Array();
-    var timestamp_number = [];
-    var timestamp_number_id = 0;
+
 
     for (k in timestamp_hashtable) {
 
         timestamp_number.push(k);
     }
 
-
-    var drawBus;
-    drawBus = function (timestamp_id) {
-
-        items = timestamp_hashtable[timestamp_number[timestamp_id]];
-
-        //                   console.log(items);
-
-        // creat the animation layer
-
-
-        //pushing items into array each by each and then add markers
-        for (var j = 0; j < items.length; j++) {
-            var LamMarker = new L.marker([items[j].lat, items[j].lon],{icon: busMovingIcon} );
-            marker.push(LamMarker);
-
-        }
+    console.log(timestamp_number.length);
 
 
 
-        L.layerGroup(marker)
-            .addTo(animiationLayer);
 
 
-        setTimeout(function () {
-
-            //clear layers
-            animiationLayer.clearLayers();
-
-            //clear marker
-            marker.length = 0;
-
-            if (timestamp_number_id < timestamp_number.length) {
-                timestamp_number_id++;
-                drawBus(timestamp_number_id);
-            }
-        }, 100);
-
-    };
-
-    drawBus(timestamp_number_id);
+//    drawBus(timestamp_number_id, animiationLayer);
 
 };
 
@@ -413,6 +490,8 @@ var setMapView = function(id){
     };
 
 
+
+
     // iteration the cities.json and find the matached ID
     for (var k in citiesSelectData.ArrayOfCity.City){
         // find the matched id
@@ -503,6 +582,8 @@ var setMapView = function(id){
     $('#layersdialog').dialog('close');
 };
 
+
+
 //////////////////////////////
 // heatmapData View
 /////////////////////////////
@@ -548,12 +629,7 @@ heatmapData.mapView = Backbone.View.extend({
         loadBusStopsData(getStops, busStopsLayer);
 
 
-        /////////////////////////////////
-        /// Bus Move Animation Layer
-        ////////////////////////////////
-        var animationLayer =  L.layerGroup();
 
-        loadData(map,animationLayer, 4);
 
 
         /////////////////////////////////
@@ -665,6 +741,8 @@ heatmapData.mapView = Backbone.View.extend({
         // make accessible for debugging
         heatmapdata_listshow = heatmapdata_list;
 
+
+        loadData(map,animationLayer, 4);
 
         ////////////////////////////////////
         ///  put variable outside for debug
