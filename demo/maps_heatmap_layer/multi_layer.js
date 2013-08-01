@@ -158,9 +158,6 @@ var checkXMLDocObj = function (xmlFile) {
 var busController = function(timestamp){
 
     var cur_timestamp = timestamp;
-
-
-
 };
 
 
@@ -236,29 +233,8 @@ drawBus = function (timestamp_id, Animation_Layer) {
 
     }
 
-
-    console.log(timestamp_id);
-
-
-
-
     L.layerGroup(marker)
         .addTo(Animation_Layer);
-
-
-//    setTimeout(function () {
-//
-//        //clear layers
-//        Animation_Layer.clearLayers();
-//
-//        //clear marker
-//        marker.length = 0;
-//
-//        if (timestamp_number_id < timestamp_number.length) {
-//            timestamp_number_id++;
-//            drawBus(timestamp_number_id, Animation_Layer);
-//        }
-//    }, 100);
 
 };
 
@@ -324,14 +300,6 @@ var loadData = function (map, animiationLayer, id) {
 
         timestamp_number.push(k);
     }
-
-    console.log(timestamp_number.length);
-
-
-
-
-
-//    drawBus(timestamp_number_id, animiationLayer);
 
 };
 

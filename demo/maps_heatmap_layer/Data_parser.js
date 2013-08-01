@@ -83,8 +83,6 @@ var loadBusRoutesData = function(dataset, layer){
         var busID = dataset[i].Id;
         var busToolTipText = dataset[i].Metadata[0].Value;
 
-        console.log(i);
-
 //        console.log(busID);
 
         var busLine = dataset[i].Geography.Geographies;
