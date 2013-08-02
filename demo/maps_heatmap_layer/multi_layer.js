@@ -70,11 +70,14 @@ $(document).ready(function () {
                 });
                 return;
             }
+
             $(this).button({
                 icons: {
                     primary: "ui-icon-pause"
                 }
             });
+
+            // this part of timeout function
             playInterval = setInterval(function () {
                 currentSlide++;
                 if (currentSlide > 720) {
@@ -90,17 +93,16 @@ $(document).ready(function () {
             }, slideDuration);
         });
 
+    // set the slider bar
     function setSlide (index) {
         currentSlide = index;
 
+        //draw bus position of buses
         drawBus(currentSlide, animationLayer);
 
+        // update the position of the slider bar
         $( "#basemapslider" ).slider( "value", index );
-
     }
-
-
-
 
     $(function () {
         $("button", ".layers").button();
@@ -149,15 +151,6 @@ var checkXMLDocObj = function (xmlFile) {
     }
 
     return xmlDoc;
-};
-
-////////////////////////////////////
-///  Bus Stops Data Loading
-///////////////////////////////////
-
-var busController = function(timestamp){
-
-    var cur_timestamp = timestamp;
 };
 
 
