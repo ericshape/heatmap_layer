@@ -182,8 +182,8 @@ var loadBusStopsData = function(dataset, layer){
 //    var marker = new Array();
 
     dataset.forEach(function(d) {
-//        marker.push(new L.marker([d.Y, d.X], {title: d.Metadata[0].Value}));
 
+        // load the bus stops data from json file
         var marker = new L.marker([d.Y, d.X], {title: d.Metadata[0].Value, icon: busIcon});
         layer.addLayer(marker);
     });
